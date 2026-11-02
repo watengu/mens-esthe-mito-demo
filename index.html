@@ -25,11 +25,6 @@ header.site{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.94);bo
 .hero-copy{position:absolute;inset:0;display:flex;align-items:center}.hero-copy .wrap{width:100%}
 .hero h1{color:#fff;font-size:clamp(30px,6vw,50px);line-height:1.4;font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.35)}
 .hero .lead{color:#f0ead9;margin-top:14px;font-size:clamp(14px,2.4vw,17px);max-width:560px}
-.hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.hchip{background:rgba(255,253,248,.96);color:var(--green);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:700}
-.hchip.hot{background:var(--accent);color:#fff}
-.staff .avail{margin-top:9px;font-size:12.5px;font-weight:700;color:var(--accent)}
-.staff .avail.full{color:#a33}
 section{padding:64px 0}.sec-head{margin-bottom:28px}
 .sec-head .en{font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:700}
 .sec-head h2{font-size:clamp(23px,4vw,30px);color:var(--green);margin-top:6px}
@@ -109,14 +104,8 @@ footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.
 <img src="img/hero.jpg" alt="ゆるり水戸の完全個室">
 <div class="hero-veil"></div>
 <div class="hero-copy"><div class="wrap">
-<h1>ゆるり水戸</h1>
-<div class="hchips">
-<span class="hchip">水戸駅南口 徒歩3分</span>
-<span class="hchip">60分 ¥4,400〜（初回 ¥3,900）</span>
-<span class="hchip">本日出勤 4名</span>
-<span class="hchip hot">本日 空きあり・21時まで受付</span>
-</div>
-<p class="lead">ランキングで見た料金のまま、追加料金はありません。このページで本日の空きを見て、そのまま予約できます。電話も会員登録もいりません。</p>
+<h1>今夜、空いてます。<br>21時まで受付。</h1>
+<p class="lead">水戸駅南口から徒歩3分、全室個室のリラクゼーション。思い立ったときに、そのまま予約できます。電話も会員登録もいりません。</p>
 </div></div>
 </div>
 
@@ -174,26 +163,6 @@ footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.
 </div>
 </div>
 
-<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="sec-head"><p class="en">TODAY'S STAFF</p><h2>本日の出勤（指名は第3希望まで）</h2></div>
-<div class="staff-grid">
-<div class="staff"><div class="avatar">凛</div><h3>高橋 凛</h3><p class="skill">アロマリンパ × むくみ・冷え</p><p class="avail">本日 19:00から空きあり</p></div>
-<div class="staff"><div class="avatar">咲</div><h3>中村 咲</h3><p class="skill">もみほぐし × 肩こり・腰の重さ</p><p class="avail">本日 18:30から空きあり</p></div>
-<div class="staff"><div class="avatar">栞</div><h3>渡辺 栞</h3><p class="skill">ヘッドスパ × 眼精疲労・睡眠</p><p class="avail">本日 20:00から空きあり</p></div>
-<div class="staff"><div class="avatar">遥</div><h3>小野 遥</h3><p class="skill">タイ古式 × 全身の伸び</p><p class="avail full">本日は満枠（明日は空きあり）</p></div>
-</div>
-<div class="split" style="margin-top:34px">
-<img src="img/reception.jpg" alt="受付と待合スペース">
-<div>
-<h2 class="mincho" style="font-size:24px;color:var(--green)">部屋は、全室個室です</h2>
-<p style="color:var(--sub);margin-top:10px">施術室は扉のある完全個室が4室。受付から個室までは木と石の内装で統一し、他のお客様と顔を合わせにくい動線にしています。施術着・タオルは無料、鍵付きロッカー完備です。</p>
-<p style="color:var(--sub);margin-top:8px">営業 10:00–22:00（最終受付 21:00）／ JR水戸駅 南口 徒歩3分 ／ 提携駐車場4台。</p>
-</div>
-</div>
-</div>
-</section>
-
 <section>
 <div class="wrap">
 <div class="sec-head"><p class="en">WHY BOOK</p><h2>予約する理由を、先に6つ</h2></div>
@@ -240,7 +209,25 @@ footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.
 </div>
 </section>
 
-
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head"><p class="en">STAFF</p><h2>担当する人（指名は第3希望まで）</h2></div>
+<div class="staff-grid">
+<div class="staff"><div class="avatar">凛</div><h3>高橋 凛</h3><p class="skill">アロマリンパ × むくみ・冷え</p></div>
+<div class="staff"><div class="avatar">咲</div><h3>中村 咲</h3><p class="skill">もみほぐし × 肩こり・腰の重さ</p></div>
+<div class="staff"><div class="avatar">栞</div><h3>渡辺 栞</h3><p class="skill">ヘッドスパ × 眼精疲労・睡眠</p></div>
+<div class="staff"><div class="avatar">遥</div><h3>小野 遥</h3><p class="skill">タイ古式 × 全身の伸び</p></div>
+</div>
+<div class="split" style="margin-top:34px">
+<img src="img/reception.jpg" alt="受付と待合スペース">
+<div>
+<h2 class="mincho" style="font-size:24px;color:var(--green)">部屋は、全室個室です</h2>
+<p style="color:var(--sub);margin-top:10px">施術室は扉のある完全個室が4室。受付から個室までは木と石の内装で統一し、他のお客様と顔を合わせにくい動線にしています。施術着・タオルは無料、鍵付きロッカー完備です。</p>
+<p style="color:var(--sub);margin-top:8px">営業 10:00–22:00（最終受付 21:00）／ JR水戸駅 南口 徒歩3分 ／ 提携駐車場4台。</p>
+</div>
+</div>
+</div>
+</section>
 
 <section>
 <div class="wrap">
@@ -333,7 +320,7 @@ footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.
 
 <footer class="site"><div class="wrap">
 <p style="font-family:'Shippori Mincho',serif;color:#fff;font-size:18px;margin-bottom:8px">ゆるり水戸</p>
-<p>このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。ランキングサイトから訪れる方の着地ページとして設計しました。実在の店舗・人物とは関係ありません。施術はリラクゼーション目的で、治療行為ではありません。</p>
+<p>このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。ベンチマーク実LPの区間分解（りらくる）に基づいて設計しました。実在の店舗・人物とは関係ありません。施術はリラクゼーション目的で、治療行為ではありません。</p>
 </div></footer>
 <div class="bottom-bar"><a class="sub2" href="#pricelist">料金表</a><a class="main" href="#book1">空きを見て予約する</a></div>
 
