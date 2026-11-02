@@ -273,7 +273,7 @@ footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.
       var working=s.days.indexOf(sel.date.getDay())>=0;
       var card=document.createElement("div"); card.className="scard"+(working?"":" off");
       var badgeHtml=s.badge?'<span class="badge '+s.badge+'">'+badgeText[s.badge]+"</span>":"";
-      var head='<div class="top"><div class="avatar">'+s.ini+'</div><div><div>'+badgeHtml+'</div><h3>'+s.name+"（"+s.age+"）</h3><p class="skill">'+s.skill+"</p></div></div>";
+      var head='<div class="top"><div class="avatar">'+s.ini+'</div><div><div>'+badgeHtml+'</div><h3>'+s.name+'（'+s.age+'）</h3><p class="skill">'+s.skill+'</p></div></div>';
       if(!working){ card.innerHTML=head+'<p class="hours">勤務時間：—</p><p class="status no">この日はお休みです</p>'; cards.appendChild(card); return; }
       var seedBase=sel.date.getDate()*100+si*17+sel.date.getMonth()*7;
       var slots="";
