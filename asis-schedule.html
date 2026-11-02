@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出勤情報｜ゆるり水戸（デモ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#b08d57;--taupe:#b0a080;--ink:#2b2b2b;--sub:#6f6f6f;--line:#d9d9d9;--pink:#e0218a;--grayband:#8c8c8c;--xblue:#1d9bf0}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:#fff;line-height:1.8;font-size:15px}
+img{display:block;max-width:100%}
+.demo-bar{background:#1c1a17;color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px;position:relative;z-index:60}
+.sidebar{position:fixed;top:0;left:0;width:264px;height:100vh;z-index:50;background:linear-gradient(180deg,#4a3520 0%,#6d5836 30%,#a8895a 70%,#c9ab72 100%);color:#fff;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.monogram{width:74px;height:74px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-size:30px;margin:0 auto}
+.script{font-family:"Cormorant Garamond",serif;font-style:italic;text-align:center;width:100%;font-size:15px;margin-top:12px;color:#f3e9d2}
+.shopname{font-family:"Shippori Mincho",serif;text-align:center;width:100%;font-size:19px;letter-spacing:.14em;margin-top:4px}
+.shopname b{color:#ffe9b0;font-weight:700}
+nav.gnav{margin-top:34px;width:100%}
+nav.gnav a{display:block;color:#fff;text-decoration:none;padding:9px 2px;font-family:"Cormorant Garamond","Shippori Mincho",serif;letter-spacing:.18em;font-size:15px}
+nav.gnav a small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;letter-spacing:.1em;color:#efe3c8;margin-left:8px}
+.side-foot{margin-top:auto;width:100%}
+.side-btn{display:block;text-align:center;border:1.5px solid #fff;color:#fff;text-decoration:none;padding:10px 6px;font-size:13.5px;font-weight:700;margin-bottom:10px;background:rgba(255,255,255,.06)}
+.side-tel{font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em}
+.side-hours{font-size:11px;text-align:center;color:#f0e7cf;margin-top:6px;line-height:1.7}
+.main{margin-left:264px}
+.mobile-head{display:none}
+.hero{position:relative}
+.hero img{width:100%;height:300px;object-fit:cover}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;background:rgba(20,16,10,.28)}
+.hero-c .monogram{width:72px;height:72px;font-size:30px}
+.hero-c .shopname{font-size:26px;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+section{padding:56px 0 64px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.sec-head{text-align:center;margin-bottom:30px}
+.sec-head .en{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5.4vw,40px);letter-spacing:.28em;color:var(--gold);font-weight:600}
+.sec-head .ja{font-size:12.5px;color:var(--sub);margin-top:2px}
+.sec-head .rule{width:56px;height:1px;background:var(--gold);margin:14px auto 0}
+.date-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.dtab{border:1px solid #cfcfcf;background:#fff;border-radius:4px;padding:9px 14px;cursor:pointer;font-family:inherit;color:var(--ink);font-size:13.5px}
+.dtab.on{background:var(--taupe);border-color:var(--taupe);color:#fff}
+.week-btn{display:block;margin:16px auto 30px;background:var(--taupe);color:#fff;border:none;border-radius:4px;padding:8px 34px;font-family:inherit;font-size:13.5px;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.scard{background:#fff;border:1px solid #eee;display:flex;flex-direction:column}
+.scard .ph{position:relative}
+.scard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.bdg{background:var(--pink);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:2px 9px}
+.xico{position:absolute;right:8px;bottom:8px;width:30px;height:30px;border-radius:50%;background:var(--xblue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none}
+.scard .info{padding:12px 10px 0;text-align:center}
+.scard .nm{font-size:15.5px}
+.scard .hrs{border-top:1px dotted #bbb;margin-top:9px;padding:9px 0 12px;font-size:13.5px;color:#444}
+.scard .status{background:var(--grayband);color:#fff;text-align:center;font-size:13.5px;padding:8px 4px;margin-top:auto}
+.contact-line{text-align:center;margin-top:40px;font-size:14px;color:#444}
+footer.site{background:#4c463c;color:#e8e4da;text-align:center;padding:44px 22px 54px;margin-left:264px}
+footer.site .tel{font-size:20px;font-weight:700;color:#fff}
+footer.site p{font-size:12.5px;margin-top:8px}
+@media(max-width:899px){
+ .sidebar{display:none}
+ .main,footer.site{margin-left:0}
+ .mobile-head{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#4a3520,#a8895a);color:#fff;padding:10px 16px;position:sticky;top:0;z-index:50}
+ .mobile-head .mn{font-family:"Shippori Mincho",serif;font-size:18px;letter-spacing:.1em}
+ .mobile-head a{color:#fff;text-decoration:none;border:1.5px solid #fff;padding:6px 12px;font-size:12.5px;font-weight:700}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .date-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px}
+ .dtab{flex:0 0 auto}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">デモサイトです。店舗・スタッフ・出勤はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
+
+<aside class="sidebar">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b>水戸</b></p>
+<nav class="gnav">
+<a href="asis-top.html">HOME<small>-ホーム-</small></a>
+<a href="asis-top.html#topics">TOPICS<small>-お知らせ-</small></a>
+<a href="asis-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
+<a href="asis-top.html#therapist">THERAPIST<small>-セラピスト-</small></a>
+<a href="asis-system.html">SYSTEM<small>-料金システム-</small></a>
+<a href="asis-top.html#access">ACCESS<small>-アクセス-</small></a>
+</nav>
+<div class="side-foot">
+<a class="side-btn" href="asis-schedule.html">WEBで予約</a>
+<a class="side-btn" href="asis-top.html#access">LINEで予約</a>
+<p class="side-tel">029-000-0000</p>
+<p class="side-hours">OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</aside>
+
+<div class="mobile-head">
+<span class="mn">ゆるり水戸</span>
+<a href="tel:0290000000">029-000-0000</a>
+<a href="asis-top.html">トップ</a>
+</div>
+
+<div class="main">
+<div class="hero">
+<img src="img/reception.jpg" alt="ゆるり水戸の受付">
+<div class="hero-c">
+<div class="monogram">ゆ</div>
+<p class="shopname">ゆるり <b style="color:#ffe9b0">水戸</b></p>
+</div>
+</div>
+
+<section>
+<div class="wrap">
+<div class="sec-head"><p class="en">SCHEDULE</p><p class="ja">スケジュール</p><div class="rule"></div></div>
+<div class="date-tabs" id="dateTabs"></div>
+<button class="week-btn" id="weekBtn" type="button">次の週</button>
+<div class="cards" id="staffCards"></div>
+<p class="contact-line">029-000-0000（架空）<br>OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<p class="tel">029-000-0000（架空）</p>
+<p>OPEN：10:00～22:00　／　RECEPTION：9:30～21:00</p>
+<p style="max-width:760px;margin:14px auto 0">このページは業態スキン（エステ版）のデモとして制作された架空店舗の出勤ページです。構成・見せ方・色と書体の印象はゴールサイトの出勤ページに沿い、テキストと人物の写らない写真を差し替えています。実在の店舗・人物とは関係ありません。</p>
+</footer>
+
+<script>
+(function(){
+  var wd=["日","月","火","水","木","金","土"];
+  var staff=[
+    {name:"高橋 凛",age:28,img:"img/slot-hands.webp",badge:["人気","おすすめ"],shift:[13,21],days:[1,2,3,4,5,6]},
+    {name:"中村 咲",age:31,img:"img/treatment.jpg",badge:["おすすめ"],shift:[10,18],days:[0,1,3,4,5]},
+    {name:"渡辺 栞",age:26,img:"img/slot-head.webp",badge:["新人","おすすめ"],shift:[12,21],days:[2,3,4,5,6]},
+    {name:"小野 遥",age:29,img:"img/slot-foot.webp",badge:[],shift:[10,16],days:[1,2,4,6]},
+    {name:"佐藤 葵",age:27,img:"img/slot-oil.webp",badge:["おすすめ"],shift:[15,21],days:[0,2,3,5,6]}
+  ];
+  var tabs=document.getElementById("dateTabs");
+  var cards=document.getElementById("staffCards");
+  var weekBtn=document.getElementById("weekBtn");
+  var dates=[]; var today=new Date();
+  for(var i=0;i<14;i++){ dates.push(new Date(today.getFullYear(),today.getMonth(),today.getDate()+i)); }
+  var week=0; var sel=dates[0];
+  function badges(s){ return '<div class="badges">'+s.badge.map(function(b){return '<span class="bdg">'+b+"</span>";}).join("")+"</div>"; }
+  function renderTabs(){
+    tabs.innerHTML="";
+    dates.slice(week*7,week*7+7).forEach(function(d){
+      var b=document.createElement("button"); b.type="button"; b.className="dtab"+(d.getTime()===sel.getTime()?" on":"");
+      b.textContent=(d.getMonth()+1)+"月"+("0"+d.getDate()).slice(-2)+"日("+wd[d.getDay()]+")";
+      b.addEventListener("click",function(){ sel=d; renderTabs(); render(); });
+      tabs.appendChild(b);
+    });
+    weekBtn.textContent = week===0 ? "次の週" : "前の週";
+  }
+  function render(){
+    cards.innerHTML="";
+    staff.forEach(function(s){
+      if(s.days.indexOf(sel.getDay())<0) return;
+      var d=document.createElement("div"); d.className="scard";
+      d.innerHTML='<div class="ph">'+badges(s)+'<img src="'+s.img+'" alt=""><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
+        +'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
+        +'<p class="hrs">🕐 '+s.shift[0]+":00～"+s.shift[1]+":00</p></div>"
+        +'<div class="status">ご予約可能</div>';
+      cards.appendChild(d);
+    });
+  }
+  weekBtn.addEventListener("click",function(){ week = week===0?1:0; sel=dates[week*7]; renderTabs(); render(); });
+  renderTabs(); render();
+})();
+</script>
+</body>
+</html>

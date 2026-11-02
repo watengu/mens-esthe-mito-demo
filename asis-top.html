@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水戸/リラクゼーション｜ゆるり水戸（デモ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#b08d57;--gold-d:#8a6a3c;--taupe:#b0a080;--ink:#2b2b2b;--sub:#6f6f6f;--line:#d9d9d9;--bg:#efefef;--pink:#e0218a;--grayband:#8c8c8c;--xblue:#1d9bf0}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;font-size:15px}
+img{display:block;max-width:100%}
+.serif{font-family:"Cormorant Garamond","Shippori Mincho",serif}
+.demo-bar{background:#1c1a17;color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px;position:relative;z-index:60}
+/* sidebar (desktop) / top bar (mobile) */
+.sidebar{position:fixed;top:0;left:0;width:264px;height:100vh;z-index:50;background:linear-gradient(180deg,#4a3520 0%,#6d5836 30%,#a8895a 70%,#c9ab72 100%);color:#fff;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.monogram{width:74px;height:74px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-size:30px;margin:0 auto}
+.script{font-family:"Cormorant Garamond",serif;font-style:italic;text-align:center;width:100%;font-size:15px;margin-top:12px;color:#f3e9d2}
+.shopname{font-family:"Shippori Mincho",serif;text-align:center;width:100%;font-size:19px;letter-spacing:.14em;margin-top:4px}
+.shopname b{color:#ffe9b0;font-weight:700}
+nav.gnav{margin-top:34px;width:100%}
+nav.gnav a{display:block;color:#fff;text-decoration:none;padding:9px 2px;font-family:"Cormorant Garamond","Shippori Mincho",serif;letter-spacing:.18em;font-size:15px}
+nav.gnav a small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;letter-spacing:.1em;color:#efe3c8;margin-left:8px}
+.side-foot{margin-top:auto;width:100%}
+.side-btn{display:block;text-align:center;border:1.5px solid #fff;color:#fff;text-decoration:none;padding:10px 6px;font-size:13.5px;font-weight:700;margin-bottom:10px;background:rgba(255,255,255,.06)}
+.side-tel{font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em}
+.side-hours{font-size:11px;text-align:center;color:#f0e7cf;margin-top:6px;line-height:1.7}
+.main{margin-left:264px}
+.mobile-head{display:none}
+.hero{position:relative;background:#000}
+.hero img{width:100%;height:min(72vh,560px);object-fit:cover;opacity:.92}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.hero-c.monogram{width:88px;height:88px;font-size:36px;background:rgba(0,0,0,.25)}
+.hero-c.shopname{font-size:clamp(24px,5vw,36px);margin-top:14px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero-c.script{font-size:17px}
+.news-bar{background:#111;color:#fff;text-align:center;padding:12px 16px;font-size:13.5px}
+section{padding:64px 0}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-head.en{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5.4vw,40px);letter-spacing:.28em;color:var(--gold);font-weight:600}
+.sec-head.ja{font-size:12.5px;color:var(--sub);margin-top:2px}
+.sec-head.rule{width:56px;height:1px;background:var(--gold);margin:14px auto 0}
+.topics{max-width:760px;margin:0 auto}
+.topics li{list-style:none;display:flex;gap:18px;padding:13px 4px;border-bottom:1px dotted #bbb;font-size:14px;flex-wrap:wrap}
+.topics.d{color:var(--sub);font-size:12.5px;white-space:nowrap;padding-top:2px}
+.gold-btn{display:block;width:fit-content;margin:30px auto 0;background:linear-gradient(180deg,#c8a566,#a8895a);color:#fff;text-decoration:none;font-family:"Shippori Mincho",serif;letter-spacing:.12em;font-size:15px;padding:13px 42px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75),inset 0 0 0 4px rgba(168,137,90,.9);text-align:center}
+.pickup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.pcard{background:#fff}
+.pcard.ph{position:relative}.pcard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pcard.nm{text-align:center;padding:9px 6px;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.scard{background:#fff;display:flex;flex-direction:column}
+.scard.ph{position:relative}
+.scard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.bdg{background:var(--pink);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:2px 9px}
+.xico{position:absolute;right:8px;bottom:8px;width:30px;height:30px;border-radius:50%;background:var(--xblue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none}
+.scard.info{padding:12px 10px 0;text-align:center}
+.scard.nm{font-size:15.5px}
+.scard.hrs{border-top:1px dotted #bbb;margin-top:9px;padding:9px 0 12px;font-size:13.5px;color:#444}
+.scard.status{background:var(--grayband);color:#fff;text-align:center;font-size:13.5px;padding:8px 4px;margin-top:auto}
+.blog article{background:#fff;padding:24px;margin-bottom:14px}
+.blog.d{font-size:12.5px;color:var(--sub)}
+.blog h3{font-size:16.5px;margin:4px 0 8px}
+.blog p{font-size:14px;color:#555}
+.credit{background:#fff;padding:26px;text-align:center}
+.credit p{color:#555;font-size:14px}
+.brands{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.brands span{border:1px solid var(--line);border-radius:6px;padding:5px 14px;font-weight:700;font-size:13px;background:#fff}
+.concept{max-width:820px;margin:0 auto;text-align:center;color:#555}
+.room{background:#fff;padding:28px;max-width:820px;margin:0 auto}
+.room h3{font-family:"Shippori Mincho",serif;font-size:19px;text-align:center}
+.room p{color:#555;font-size:14px;margin-top:10px;text-align:center}
+.foot-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.foot-btns.gold-btn{margin:0}
+footer.site{background:#4c463c;color:#e8e4da;text-align:center;padding:44px 22px 54px;margin-left:264px}
+footer.site.tel{font-size:20px;font-weight:700;color:#fff}
+footer.site p{font-size:12.5px;margin-top:8px}
+@media(max-width:899px){
+.sidebar{display:none}
+.main,footer.site{margin-left:0}
+.mobile-head{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#4a3520,#a8895a);color:#fff;padding:10px 16px;position:sticky;top:0;z-index:50}
+.mobile-head.mn{font-family:"Shippori Mincho",serif;font-size:18px;letter-spacing:.1em}
+.mobile-head a{color:#fff;text-decoration:none;border:1.5px solid #fff;padding:6px 12px;font-size:12.5px;font-weight:700}
+.cards{grid-template-columns:repeat(2,1fr)}
+.pickup-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="demo-bar">デモサイトです。店舗・スタッフ・出勤・料金はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
+
+<aside class="sidebar">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b>水戸</b></p>
+<nav class="gnav">
+<a href="#top">HOME<small>-ホーム-</small></a>
+<a href="#topics">TOPICS<small>-お知らせ-</small></a>
+<a href="asis-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
+<a href="#therapist">THERAPIST<small>-セラピスト-</small></a>
+<a href="asis-system.html">SYSTEM<small>-料金システム-</small></a>
+<a href="#access">ACCESS<small>-アクセス-</small></a>
+</nav>
+<div class="side-foot">
+<a class="side-btn" href="asis-schedule.html">WEBで予約</a>
+<a class="side-btn" href="#access">LINEで予約</a>
+<p class="side-tel">029-000-0000</p>
+<p class="side-hours">OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</aside>
+
+<div class="mobile-head">
+<span class="mn">ゆるり水戸</span>
+<a href="tel:0290000000">029-000-0000</a>
+<a href="asis-schedule.html">出勤情報</a>
+</div>
+
+<div class="main">
+<div class="hero" id="top">
+<img src="img/hero.jpg" alt="ゆるり水戸の施術ルーム">
+<div class="hero-c">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b style="color:#ffe9b0">水戸</b></p>
+</div>
+</div>
+<div class="news-bar">NEWS　11月もよろしくお願いします。出勤情報を公開しました。ご新規様は初回500円OFFです。（デモ）</div>
+
+<section id="topics">
+<div class="wrap">
+<div class="sec-head"><p class="en">TOPICS</p><p class="ja">お知らせ</p><div class="rule"></div></div>
+<ul class="topics">
+<li><span class="d">求人情報 2026/11/02</span><span>スタッフさん大募集！〜当店の看板スタッフになりませんか〜（デモ）</span></li>
+<li><span class="d">お知らせ 2026/11/02</span><span>♡簡単WEB予約のご案内♡（デモ）</span></li>
+</ul>
+<a class="gold-btn" href="#topics">TOPICS一覧はこちら</a>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">PICK UP</p><p class="ja">ピックアップ</p><div class="rule"></div></div>
+<div class="pickup-grid" id="pickupGrid"></div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">X</p><p class="ja">旧TWITTER</p><div class="rule"></div></div>
+<p style="text-align:center"><a href="#top" style="color:var(--gold);font-weight:700">X（旧TWITTER）はこちら（デモ）</a></p>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">TODAY'S SCHEDULE</p><p class="ja">本日の出勤</p><div class="rule"></div></div>
+<div class="cards" id="todayCards"></div>
+<a class="gold-btn" href="asis-schedule.html">出勤情報一覧はこちら</a>
+</div>
+</section>
+
+<section id="therapist" style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">THERAPIST</p><p class="ja">セラピスト</p><div class="rule"></div></div>
+<div class="cards" id="therapistCards"></div>
+<a class="gold-btn" href="asis-schedule.html">セラピスト一覧はこちら</a>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">BLOG</p><p class="ja">ブログ</p><div class="rule"></div></div>
+<div class="blog">
+<article><p class="d">2026.11.02 10:00</p><h3>新人スタッフ入店</h3><p>ヘッドスパを得意とする渡辺 栞が入店しました。眼精疲労や眠りの浅さが気になる方に、落ち着いた施術でお応えします。はじめの10分で圧の強さを確認しながら進めますので、初めての方も安心してお越しください。（デモ）</p></article>
+<article><p class="d">2026.11.01 10:00</p><h3>新人スタッフ入店</h3><p>もみほぐしを得意とする佐藤 葵が入店しました。肩こりと目の疲れ、両方ある日のケアが得意です。どうぞよろしくお願いいたします。（デモ）</p></article>
+</div>
+<a class="gold-btn" href="#top">ブログを見る</a>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">CREDIT</p><p class="ja">クレジット</p><div class="rule"></div></div>
+<div class="credit">
+<p>クレジットカードをご利用の際は必ずご予約時にお伝え下さい。</p>
+<p style="margin-top:6px">VISA、MASTER、JCB、AMEX、DINERSがご利用になれます。</p>
+<div class="brands"><span style="color:#1a1f71">VISA</span><span style="color:#3f5ba9">JCB</span><span>Mastercard</span><span style="color:#2e77bc">AMEX</span><span style="color:#00427a">Diners Club</span></div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">CONCEPT</p><p class="ja">コンセプト</p><div class="rule"></div></div>
+<div class="concept">
+<p>丁寧な接客と確かな技術を持ち合わせたスタッフのみ在籍しています。完全個室の静かな空間で、非日常の癒やしをお届けいたします。（デモ文面）</p>
+<img src="img/reception.jpg" alt="受付と待合スペース" style="margin:26px auto 0;width:100%;max-width:720px">
+</div>
+</div>
+</section>
+
+<section id="access" style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">ACCESS</p><p class="ja">アクセス</p><div class="rule"></div></div>
+<div class="room">
+<h3>水戸ルーム</h3>
+<p>茨城県水戸市城南２丁目（架空の住所表記です）</p>
+<p>JR常磐線 水戸駅 徒歩３分 ※南口</p>
+<p>提携駐車場が4台ございます。お車の方はご予約のときにお伝えください。</p>
+<p style="margin-top:12px">TEL： 029-000-0000（架空）<br>Open 10:00 ～ 22:00</p>
+</div>
+<div class="foot-btns" style="margin-top:34px">
+<a class="gold-btn" href="asis-schedule.html">Reserve ご予約</a>
+<a class="gold-btn" href="asis-system.html">Q&amp;A よくあるご質問</a>
+<a class="gold-btn" href="#topics">Recruit 求人情報</a>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<p class="tel">029-000-0000（架空）</p>
+<p>OPEN：10:00～22:00　／　RECEPTION：9:30～21:00</p>
+<p style="max-width:760px;margin:14px auto 0">このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。構成・並び・見せ方・色と書体の印象はゴールサイト（THE PREMIUM SPA）の実ページに沿って作り、店名・スタッフ名・料金・電話番号などのテキストと、人物の写らない写真に差し替えています。実在の店舗・人物とは関係ありません。</p>
+</footer>
+
+<script>
+(function(){
+var staff=[
+{name:"高橋 凛",age:28,img:"img/slot-hands.webp",badge:["人気","おすすめ"],shift:[13,21],days:[1,2,3,4,5,6]},
+{name:"中村 咲",age:31,img:"img/treatment.jpg",badge:["おすすめ"],shift:[10,18],days:[0,1,3,4,5]},
+{name:"渡辺 栞",age:26,img:"img/slot-head.webp",badge:["新人","おすすめ"],shift:[12,21],days:[2,3,4,5,6]},
+{name:"小野 遥",age:29,img:"img/slot-foot.webp",badge:[],shift:[10,16],days:[1,2,4,6]},
+{name:"佐藤 葵",age:27,img:"img/slot-oil.webp",badge:["おすすめ"],shift:[15,21],days:[0,2,3,5,6]}
+];
+function badges(s){ return '<div class="badges">'+s.badge.map(function(b){return '<span class="bdg">'+b+"</span>";}).join("")+"</div>";}
+function card(s,status){
+return '<div class="ph">'+badges(s)+'<img src="'+s.img+'" alt=""><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
++'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
++'<p class="hrs">🕐 '+status+"</p></div>"
++(status!=="-----"? '<div class="status">ご予約可能</div>': "");
+}
+var today=new Date().getDay();
+var pg=document.getElementById("pickupGrid");
+staff.forEach(function(s){
+var d=document.createElement("div"); d.className="pcard";
+d.innerHTML='<div class="ph">'+badges(s)+'<img src="'+s.img+'" alt=""></div><p class="nm">'+s.name+"("+s.age+")</p>";
+pg.appendChild(d);
+});
+var tc=document.getElementById("todayCards");
+staff.forEach(function(s){
+if(s.days.indexOf(today)<0) return;
+var d=document.createElement("div"); d.className="scard";
+d.innerHTML=card(s, s.shift[0]+":00～"+s.shift[1]+":00");
+tc.appendChild(d);
+});
+var th=document.getElementById("therapistCards");
+staff.forEach(function(s){
+var working=s.days.indexOf(today)>=0;
+var d=document.createElement("div"); d.className="scard";
+d.innerHTML=card(s, working? (s.shift[0]+":00～"+s.shift[1]+":00"): "-----");
+th.appendChild(d);
+});
+})();
+</script>
+</body>
+</html>
