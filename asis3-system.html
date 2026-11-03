@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>料金システム｜ゆるり水戸（デモ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#b08d57;--taupe:#b0a080;--ink:#2b2b2b;--sub:#6f6f6f;--line:#d9d9d9;--beige:#e9e6df}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:#fff;line-height:1.8;font-size:15px}
+img{display:block;max-width:100%}
+.demo-bar{background:#1c1a17;color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px;position:relative;z-index:60}
+.sidebar{position:fixed;top:0;left:0;width:264px;height:100vh;z-index:50;background:linear-gradient(180deg,#4a3520 0%,#6d5836 30%,#a8895a 70%,#c9ab72 100%);color:#fff;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.monogram{width:74px;height:74px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-size:30px;margin:0 auto}
+.script{font-family:"Cormorant Garamond",serif;font-style:italic;text-align:center;width:100%;font-size:15px;margin-top:12px;color:#f3e9d2}
+.shopname{font-family:"Shippori Mincho",serif;text-align:center;width:100%;font-size:19px;letter-spacing:.14em;margin-top:4px}
+.shopname b{color:#ffe9b0;font-weight:700}
+nav.gnav{margin-top:34px;width:100%}
+nav.gnav a{display:block;color:#fff;text-decoration:none;padding:9px 2px;font-family:"Cormorant Garamond","Shippori Mincho",serif;letter-spacing:.18em;font-size:15px}
+nav.gnav a small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;letter-spacing:.1em;color:#efe3c8;margin-left:8px}
+.side-foot{margin-top:auto;width:100%}
+.side-btn{display:block;text-align:center;border:1.5px solid #fff;color:#fff;text-decoration:none;padding:10px 6px;font-size:13.5px;font-weight:700;margin-bottom:10px;background:rgba(255,255,255,.06)}
+.side-tel{font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em}
+.side-hours{font-size:11px;text-align:center;color:#f0e7cf;margin-top:6px;line-height:1.7}
+.main{margin-left:264px}
+.mobile-head{display:none}
+.hero{position:relative}
+.hero img{width:100%;height:300px;object-fit:cover}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;background:rgba(20,16,10,.28)}
+.hero-c .monogram{width:72px;height:72px;font-size:30px}
+.hero-c .shopname{font-size:26px;text-shadow:0 2px 10px rgba(0,0,0,.45)}
+section{padding:56px 0 64px}
+.wrap{max-width:900px;margin:0 auto;padding:0 22px}
+.sec-head{text-align:center;margin-bottom:30px}
+.sec-head .en{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5.4vw,40px);letter-spacing:.28em;color:var(--gold);font-weight:600}
+.sec-head .ja{font-size:12.5px;color:var(--sub);margin-top:2px}
+.sec-head .rule{width:56px;height:1px;background:var(--gold);margin:14px auto 0}
+.course-bar{background:var(--taupe);color:#fff;font-weight:700;font-size:16.5px;padding:11px 18px;margin:34px 0 0}
+.course-intro{color:#555;font-size:14px;margin:14px 2px;max-width:820px}
+table.price{width:100%;border-collapse:collapse}
+table.price td{border:1px solid #ddd;padding:15px 18px;font-size:14.5px;text-align:center}
+table.price td.cname{background:var(--beige);width:52%;font-weight:500}
+table.price td.yen{background:#fff}
+.notes{margin-top:14px}
+.notes h3{font-size:15px;margin:20px 0 8px}
+.notes p,.notes li{font-size:13px;color:#444;line-height:1.9}
+.notes ul{padding-left:18px}
+.brands{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.brands span{border:1px solid var(--line);border-radius:6px;padding:5px 14px;font-weight:700;font-size:13px;background:#fff}
+footer.site{background:#4c463c;color:#e8e4da;text-align:center;padding:44px 22px 54px;margin-left:264px}
+footer.site .tel{font-size:20px;font-weight:700;color:#fff}
+footer.site p{font-size:12.5px;margin-top:8px}
+@media(max-width:899px){
+ .sidebar{display:none}
+ .main,footer.site{margin-left:0}
+ .mobile-head{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#4a3520,#a8895a);color:#fff;padding:10px 16px;position:sticky;top:0;z-index:50}
+ .mobile-head .mn{font-family:"Shippori Mincho",serif;font-size:18px;letter-spacing:.1em}
+ .mobile-head a{color:#fff;text-decoration:none;border:1.5px solid #fff;padding:6px 12px;font-size:12.5px;font-weight:700}
+}
+
+#splash{position:fixed;inset:0;z-index:200;background:radial-gradient(ellipse at 50% 35%,#f0dcae 0%,#dfc28a 45%,#c3a266 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:splashfade .6s ease 1.15s forwards}
+#splash .mono{width:104px;height:104px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:44px;color:#fff;text-shadow:0 1px 6px rgba(120,90,30,.45)}
+#splash .sc{font-family:"Snell Roundhand","Hiragino Mincho ProN",cursive;color:#fff;font-size:15px;letter-spacing:.14em}
+#splash .lg{font-family:Georgia,"Hiragino Mincho ProN",serif;color:#fff;font-size:26px;letter-spacing:.3em;text-shadow:0 1px 6px rgba(120,90,30,.45);padding-left:.3em}
+@keyframes splashfade{to{opacity:0;visibility:hidden}}
+.mbar{display:none}.bbar{display:none}.mnav{display:none}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dsel{background:linear-gradient(180deg,#c8ab72,#b08d57);color:#fff;text-align:center;padding:13px;font-size:16px;letter-spacing:.14em;margin:6px 0 10px}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dgrid button{background:#fff;border:1px solid #cfc4a6;color:#5d4c2a;padding:11px 0;font-size:14px;cursor:pointer;font-family:inherit}
+.dgrid button.on{border-color:#b08d57;color:#b08d57;font-weight:700}
+@media(max-width:1023px){
+.mbar{display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,#c8ab72,#a8894f);color:#fff;padding:8px 12px;position:sticky;top:0;z-index:60}
+.mbar .mm{width:40px;height:40px;border:1.2px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:serif;font-size:19px;flex:none}
+.mbar .mc{flex:1;text-align:center;line-height:1.55}
+.mbar .mc .tel{font-size:16px;letter-spacing:.05em}
+.mbar .mc .hrs{font-size:10.5px;opacity:.95}
+.mbar .burger{background:none;border:0;color:#fff;font-size:23px;padding:6px;flex:none;cursor:pointer}
+.mnav{display:none;background:#f7f2e7;border-bottom:1px solid #ddd2ba;position:sticky;top:57px;z-index:59}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 18px;color:#6d5a33;text-decoration:none;border-top:1px solid #e7dcc2;font-size:14px;letter-spacing:.12em}
+.bbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:2px;background:rgba(60,48,28,.3);padding:2px}
+.bbar a{flex:1;background:linear-gradient(180deg,#d3b57c,#b08d57);color:#fff;text-align:center;padding:11px 0;font-size:13.5px;text-decoration:none;letter-spacing:.06em}
+body{padding-bottom:54px}
+.hero{height:56vh;min-height:330px}
+}
+</style>
+</head>
+<body><header class="mbar"><div class="mm">ゆ</div><div class="mc"><div class="tel">📱 029-000-0000</div><div class="hrs">OPEN：10:00～22:00　RECEPTION：9:30～21:00</div></div><button class="burger" id="burger" type="button" aria-label="メニュー">☰</button></header>
+<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="asis3-system.html">SYSTEM</a></nav>
+
+<div class="demo-bar">デモサイトです。店舗・スタッフ・料金はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
+
+<aside class="sidebar">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b>水戸</b></p>
+<nav class="gnav">
+<a href="asis3-top.html">HOME<small>-ホーム-</small></a>
+<a href="asis3-top.html#topics">TOPICS<small>-お知らせ-</small></a>
+<a href="asis3-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
+<a href="asis3-top.html#therapist">THERAPIST<small>-セラピスト-</small></a>
+<a href="asis3-system.html">SYSTEM<small>-料金システム-</small></a>
+<a href="asis3-top.html#access">ACCESS<small>-アクセス-</small></a>
+</nav>
+<div class="side-foot">
+<a class="side-btn" href="asis3-schedule.html">WEBで予約</a>
+<a class="side-btn" href="asis3-top.html#access">LINEで予約</a>
+<p class="side-tel">029-000-0000</p>
+<p class="side-hours">OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</aside>
+
+<div class="mobile-head">
+<span class="mn">ゆるり水戸</span>
+<a href="tel:0290000000">029-000-0000</a>
+<a href="asis3-top.html">トップ</a>
+</div>
+
+<div class="main">
+<div class="hero">
+<img src="img/hero.jpg" alt="ゆるり水戸の施術ルーム">
+<div class="hero-c">
+<div class="monogram">ゆ</div>
+<p class="shopname">ゆるり <b style="color:#ffe9b0">水戸</b></p>
+</div>
+</div>
+
+<section>
+<div class="wrap">
+<div class="sec-head"><p class="en">SYSTEM</p><p class="ja">料金システム</p><div class="rule"></div></div>
+
+<h3 class="course-bar">おためし＆通常コース</h3>
+<p class="course-intro">厳選された、当店自慢のスタッフの癒しの施術を思う存分に味わってください！！（デモ文面）</p>
+<table class="price">
+<tr><td class="cname">お試し　60分コース</td><td class="yen">4,400円</td></tr>
+<tr><td class="cname">通常　90分コース</td><td class="yen">6,900円</td></tr>
+<tr><td class="cname">ロングコース　120分</td><td class="yen">9,900円</td></tr>
+<tr><td class="cname">Executiveコース　120分（本指名の方のみ）</td><td class="yen">11,600円</td></tr>
+</table>
+
+<h3 class="course-bar">ラグジュアリーコース</h3>
+<p class="course-intro">ラグジュアリーコースは、仰向けメインのオイル増量＋ディープリンパ。90分コースはディープリンパ30分込み、120分コースはディープリンパ45分込みです。（デモ文面）</p>
+<table class="price">
+<tr><td class="cname">90分コース</td><td class="yen">8,300円</td></tr>
+<tr><td class="cname">120分コース</td><td class="yen">11,000円</td></tr>
+</table>
+
+<h3 class="course-bar">オプション</h3>
+<p class="course-intro">オプションの詳細についてはお問い合わせください。</p>
+<table class="price">
+<tr><td class="cname">延長30分</td><td class="yen">3,300円</td></tr>
+<tr><td class="cname">指名料</td><td class="yen">300円</td></tr>
+<tr><td class="cname">オプション</td><td class="yen">1,000円〜</td></tr>
+<tr><td class="cname">新規入会金</td><td class="yen">0円（新規特典として無料）</td></tr>
+</table>
+
+<p style="margin-top:22px;font-size:14px;color:#555">クレジットカードをご利用の際は必ずご予約時にお伝え下さい。VISA、MASTER、JCB、AMEX、DINERSがご利用になれます。</p>
+<div class="brands"><span style="color:#1a1f71">VISA</span><span style="color:#3f5ba9">JCB</span><span>Mastercard</span><span style="color:#2e77bc">AMEX</span><span style="color:#00427a">Diners Club</span></div>
+
+<h3 class="course-bar">ご利用について</h3>
+<div class="notes">
+<h3>♦注意事項</h3>
+<p>当店はアロマオイルマッサージを中心に行うリラクゼーションサロンです。</p>
+<p>医療法が定める病院や診療所・治療院・按摩マッサージ・鍼灸による施術所ではございません。</p>
+<p>また、回春マッサージや風俗的なサービスは一切ございませんので予めご了承ください。そのような目的、強要する方のご利用は固くお断りさせて頂きます。</p>
+<h3>♦禁止事項</h3>
+<ul>
+<li>18歳未満の方のご利用はできません。</li>
+<li>スタッフに対する暴言、嫌がらせ・性的サービスの強要は禁止しております。</li>
+<li>大声を上げたり、他のお客様や近隣の迷惑になる行為を禁止しております。</li>
+<li>泥酔されている方、薬物使用者のご利用を禁止しております。</li>
+<li>セラピストとの個人的な連絡先交換や外へのお誘い、他店様の引抜きを目的とした行為は堅くお断りいたします。</li>
+<li>盗撮・盗聴などの行為を禁止しております。</li>
+<li>心臓疾患・伝染病・感染症にかかっている方</li>
+<li>公衆電話、非通知でのお電話はお受けできませんのでご了承ください。</li>
+<li>セラピストをご指名の場合、体調等の理由でご希望のセラピストが欠席や遅刻等がある場合もございます。</li>
+<li>万一、ご希望のセラピストが欠席した場合等は、キャンセルもしくはフリーでのご案内となりますので予めご了承ください。</li>
+<li>無断キャンセルや3時間を切る直前キャンセルの場合、キャンセル料は予定されていた料金が当店のキャンセルポリシーとなります。※カード決済にてお支払いいただく形になります。（事前予約の場合は当日のキャンセルがキャンセル料支払いの対象となります）</li>
+<li>ご連絡なく10分以上予約時間を過ぎてしまうとキャンセル扱いになります。</li>
+<li>また、ご連絡があった場合でも、コースのお時間を短縮させていただく事もございます。</li>
+<li>コースの変更はできかねます。当店のご利用規約に対して違反行為があった場合には施術中であっても退店して頂き、次回からのご予約をお断りさせて頂きますのでご理解頂きますようお願いいたします。</li>
+</ul>
+<h3>♦ご予約受付に関して</h3>
+<p>注：当店ご利用のないご新規のお客様も、出勤ページにアップされている2週間分の出勤からご予約が可能となります。</p>
+<p style="margin-top:14px">029-000-0000（架空）<br>OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<p class="tel">029-000-0000（架空）</p>
+<p>OPEN：10:00～22:00　／　RECEPTION：9:30～21:00</p>
+<p style="max-width:760px;margin:14px auto 0">このページは業態スキン（エステ版）のデモとして制作された架空店舗の料金ページです。構成・見せ方・色と書体の印象はゴールサイトの料金ページに沿い、テキストを差し替えています。実在の店舗・人物・料金とは関係ありません。</p>
+</footer>
+<div class="bbar"><a href="tel:0290000000">📞 電話予約</a><a href="asis3-schedule.html">✉ WEB予約</a><a href="#top">LINE予約</a></div>
+<script>document.getElementById("burger").addEventListener("click",function(){document.getElementById("mnav").classList.toggle("open");});</script>
+</body>
+</html>
