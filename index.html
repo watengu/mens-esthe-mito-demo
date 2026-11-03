@@ -3,396 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ゆるり水戸｜水戸駅南口3分のリラクゼーション（デモ）</title>
+<title>水戸/リラクゼーション｜ゆるり水戸（デモ）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--green:#22452f;--green-d:#17301f;--cream:#f6f1e7;--paper:#fffdf8;--ink:#26302a;--sub:#5c665e;--line:#ddd3bf;--accent:#c96f2e}
+:root{--gold:#b08d57;--gold-d:#8a6a3c;--taupe:#b0a080;--ink:#2b2b2b;--sub:#6f6f6f;--line:#d9d9d9;--bg:#efefef;--pink:#e0218a;--grayband:#8c8c8c;--xblue:#1d9bf0}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--cream);line-height:1.75;font-size:15px}
-h1,h2,.mincho{font-family:"Shippori Mincho",serif}img{display:block;max-width:100%}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.demo-bar{background:var(--green-d);color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.94);border-bottom:1px solid var(--line)}
-.header-in{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.logo{font-family:"Shippori Mincho",serif;font-size:22px;font-weight:700;color:var(--green);text-decoration:none;letter-spacing:.08em}
-.logo small{display:block;font-size:10px;font-family:"Zen Kaku Gothic New",sans-serif;color:var(--sub);letter-spacing:.22em}
-.btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;border:none;cursor:pointer;padding:12px 26px;border-radius:999px;font-size:15px;font-weight:700;letter-spacing:.06em;font-family:inherit}
-.btn.small{padding:9px 20px;font-size:14px}
-.btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--green)}
-.hero{position:relative}.hero img{width:100%;height:min(72vh,560px);object-fit:cover}
-.hero-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,32,22,.66) 0%,rgba(18,32,22,.3) 55%,rgba(18,32,22,0) 100%)}
-.hero-copy{position:absolute;inset:0;display:flex;align-items:center}.hero-copy .wrap{width:100%}
-.hero h1{color:#fff;font-size:clamp(30px,6vw,50px);line-height:1.4;font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.35)}
-.hero .lead{color:#f0ead9;margin-top:14px;font-size:clamp(14px,2.4vw,17px);max-width:560px}
-section{padding:64px 0}.sec-head{margin-bottom:28px}
-.sec-head .en{font-size:11px;letter-spacing:.3em;color:var(--accent);font-weight:700}
-.sec-head h2{font-size:clamp(23px,4vw,30px);color:var(--green);margin-top:6px}
-.sec-head p{color:var(--sub);margin-top:8px;max-width:680px}
-.booking{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 14px 34px rgba(34,69,47,.1)}
-.booking-wrap{margin-top:-52px;position:relative;z-index:5}
-.booking h3{font-family:"Shippori Mincho",serif;color:var(--green);font-size:20px;margin-bottom:4px}
-.booking .sub{font-size:13px;color:var(--sub);margin-bottom:18px}
-.field{margin-bottom:16px}.field>label{display:block;font-weight:700;font-size:13px;letter-spacing:.08em;color:var(--green);margin-bottom:8px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit;color:var(--ink)}
-.chip small{display:block;font-size:11px;color:var(--sub);line-height:1.3}
-.chip.on{border-color:var(--green);background:var(--green);color:#fff}.chip.on small{color:#cfdccf}
-.chip.mchip.on{background:var(--accent);border-color:var(--accent)}
-.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
-.slot{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 4px;text-align:center;cursor:pointer;font-family:inherit;font-size:14px}
-.slot .st{display:block;font-size:11px;font-weight:700}.slot.ok .st{color:var(--green)}.slot.few .st{color:var(--accent)}
-.slot.full{opacity:.38;cursor:not-allowed}.slot.full .st{color:#a33}
-.slot.on{border-color:var(--green);background:var(--green);color:#fff}.slot.on .st{color:#fff}
-.slot-note{font-size:12px;color:var(--sub);margin-top:9px}
-select,input[type=text],input[type=tel]{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.est{background:var(--cream);border:1px dashed var(--green);border-radius:12px;padding:13px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:4px 0 16px}
-.est .price{font-family:"Shippori Mincho",serif;font-size:25px;color:var(--green);font-weight:700}
-.review{display:none;background:#fdf6ea;border:1.5px solid var(--accent);border-radius:14px;padding:20px;margin-top:14px}
-.review.show{display:block}.review .warn{font-weight:700;color:var(--accent);font-size:13px}
-.confirm{display:none;background:#eef4ec;border:1.5px solid var(--green);border-radius:14px;padding:22px;margin-top:14px}
-.confirm.show{display:block}.confirm .no{font-family:"Shippori Mincho",serif;font-size:23px;color:var(--green);font-weight:700}
-.menu-pick{display:none;margin-top:14px}.menu-pick.show{display:block}
-.bene{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.bene .b{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
-.bene .b h3{font-family:"Shippori Mincho",serif;font-size:17px;color:var(--green)}
-.bene .b p{font-size:13px;color:var(--sub);margin-top:5px}
-.num3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.num3 .n{background:var(--green);color:#e8ecdd;border-radius:14px;padding:24px}
-.num3 .n .no{font-family:"Shippori Mincho",serif;font-size:26px;color:#fff}
-.num3 .n h3{color:#fff;font-size:16px;margin:4px 0}.num3 .n p{font-size:13px;color:#c9d2bd}
-.price3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.pcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center}
-.pcard h3{font-size:14px;color:var(--sub);font-weight:700;letter-spacing:.06em}
-.pcard .yen{font-family:"Shippori Mincho",serif;font-size:32px;font-weight:700;color:var(--green);margin-top:6px}.pcard .yen small{font-size:14px}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
-.split img{border-radius:16px;height:320px;width:100%;object-fit:cover}
-.staff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.staff{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 16px;text-align:center}
-.avatar{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-family:"Shippori Mincho",serif;font-size:25px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
-.staff h3{font-size:16px}.staff .skill{color:var(--green);font-weight:700;font-size:12.5px;margin-top:3px}
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:step}
-.flow .f{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
-.flow .f::before{counter-increment:step;content:"STEP " counter(step);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--accent);display:block;margin-bottom:6px}
-.flow h3{font-size:15px;color:var(--green);margin-bottom:5px}.flow p{font-size:12.5px;color:var(--sub)}
-table.menu{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line)}
-table.menu th,table.menu td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
-table.menu th{background:var(--green);color:#fff}table.menu td.yen{text-align:right;font-weight:700;white-space:nowrap}
-.news{border-top:1px solid var(--line)}
-.news li{list-style:none;display:flex;gap:16px;padding:13px 4px;border-bottom:1px solid var(--line);font-size:14px;flex-wrap:wrap}
-.news .d{color:var(--sub);font-size:12.5px;white-space:nowrap;padding-top:2px}
-details.faq{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:0 20px}
-details.faq summary{cursor:pointer;font-weight:700;padding:15px 0;color:var(--green);list-style:none}
-details.faq summary::-webkit-details-marker{display:none}
-details.faq p{padding:0 0 16px;color:var(--sub);font-size:14px}
-footer.site{background:var(--green-d);color:#cfd6c6;padding:40px 0 104px}footer.site p{font-size:12.5px}
-.bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,253,248,.97);border-top:1px solid var(--line);display:flex}
-.bottom-bar a{flex:1;text-align:center;padding:14px 6px;font-weight:700;text-decoration:none;font-size:15px}
-.bottom-bar a.main{background:var(--green);color:#fff}.bottom-bar a.sub2{color:var(--green)}
-@media(max-width:820px){.bene,.num3,.price3{grid-template-columns:1fr}.split{grid-template-columns:1fr}.staff-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}section{padding:48px 0}}
+body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;font-size:15px}
+img{display:block;max-width:100%}
+.serif{font-family:"Cormorant Garamond","Shippori Mincho",serif}
+.demo-bar{background:#1c1a17;color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px;position:relative;z-index:60}
+/* sidebar (desktop) / top bar (mobile) */
+.sidebar{position:fixed;top:0;left:0;width:264px;height:100vh;z-index:50;background:linear-gradient(180deg,#4a3520 0%,#6d5836 30%,#a8895a 70%,#c9ab72 100%);color:#fff;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
+.monogram{width:74px;height:74px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-size:30px;margin:0 auto}
+.script{font-family:"Cormorant Garamond",serif;font-style:italic;text-align:center;width:100%;font-size:15px;margin-top:12px;color:#f3e9d2}
+.shopname{font-family:"Shippori Mincho",serif;text-align:center;width:100%;font-size:19px;letter-spacing:.14em;margin-top:4px}
+.shopname b{color:#ffe9b0;font-weight:700}
+nav.gnav{margin-top:34px;width:100%}
+nav.gnav a{display:block;color:#fff;text-decoration:none;padding:9px 2px;font-family:"Cormorant Garamond","Shippori Mincho",serif;letter-spacing:.18em;font-size:15px}
+nav.gnav a small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;letter-spacing:.1em;color:#efe3c8;margin-left:8px}
+.side-foot{margin-top:auto;width:100%}
+.side-btn{display:block;text-align:center;border:1.5px solid #fff;color:#fff;text-decoration:none;padding:10px 6px;font-size:13.5px;font-weight:700;margin-bottom:10px;background:rgba(255,255,255,.06)}
+.side-tel{font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em}
+.side-hours{font-size:11px;text-align:center;color:#f0e7cf;margin-top:6px;line-height:1.7}
+.main{margin-left:264px}
+.mobile-head{display:none}
+.hero{position:relative;background:#000}
+.hero img{width:100%;height:min(72vh,560px);object-fit:cover;opacity:.92}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.hero-c.monogram{width:88px;height:88px;font-size:36px;background:rgba(0,0,0,.25)}
+.hero-c.shopname{font-size:clamp(24px,5vw,36px);margin-top:14px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero-c.script{font-size:17px}
+.news-bar{background:#111;color:#fff;text-align:center;padding:12px 16px;font-size:13.5px}
+section{padding:64px 0}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-head.en{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5.4vw,40px);letter-spacing:.28em;color:var(--gold);font-weight:600}
+.sec-head.ja{font-size:12.5px;color:var(--sub);margin-top:2px}
+.sec-head.rule{width:56px;height:1px;background:var(--gold);margin:14px auto 0}
+.topics{max-width:760px;margin:0 auto}
+.topics li{list-style:none;display:flex;gap:18px;padding:13px 4px;border-bottom:1px dotted #bbb;font-size:14px;flex-wrap:wrap}
+.topics.d{color:var(--sub);font-size:12.5px;white-space:nowrap;padding-top:2px}
+.gold-btn{display:block;width:fit-content;margin:30px auto 0;background:linear-gradient(180deg,#c8a566,#a8895a);color:#fff;text-decoration:none;font-family:"Shippori Mincho",serif;letter-spacing:.12em;font-size:15px;padding:13px 42px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75),inset 0 0 0 4px rgba(168,137,90,.9);text-align:center}
+.pickup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.pcard{background:#fff}
+.pcard.ph{position:relative}.pcard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pcard.nm{text-align:center;padding:9px 6px;font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.scard{background:#fff;display:flex;flex-direction:column}
+.scard.ph{position:relative}
+.scard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.bdg{background:var(--pink);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:2px 9px}
+.xico{position:absolute;right:8px;bottom:8px;width:30px;height:30px;border-radius:50%;background:var(--xblue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none}
+.scard.info{padding:12px 10px 0;text-align:center}
+.scard.nm{font-size:15.5px}
+.scard.hrs{border-top:1px dotted #bbb;margin-top:9px;padding:9px 0 12px;font-size:13.5px;color:#444}
+.scard.status{background:var(--grayband);color:#fff;text-align:center;font-size:13.5px;padding:8px 4px;margin-top:auto}
+.blog article{background:#fff;padding:24px;margin-bottom:14px}
+.blog.d{font-size:12.5px;color:var(--sub)}
+.blog h3{font-size:16.5px;margin:4px 0 8px}
+.blog p{font-size:14px;color:#555}
+.credit{background:#fff;padding:26px;text-align:center}
+.credit p{color:#555;font-size:14px}
+.brands{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.brands span{border:1px solid var(--line);border-radius:6px;padding:5px 14px;font-weight:700;font-size:13px;background:#fff}
+.concept{max-width:820px;margin:0 auto;text-align:center;color:#555}
+.room{background:#fff;padding:28px;max-width:820px;margin:0 auto}
+.room h3{font-family:"Shippori Mincho",serif;font-size:19px;text-align:center}
+.room p{color:#555;font-size:14px;margin-top:10px;text-align:center}
+.foot-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.foot-btns.gold-btn{margin:0}
+footer.site{background:#4c463c;color:#e8e4da;text-align:center;padding:44px 22px 54px;margin-left:264px}
+footer.site.tel{font-size:20px;font-weight:700;color:#fff}
+footer.site p{font-size:12.5px;margin-top:8px}
+@media(max-width:899px){
+.sidebar{display:none}
+.main,footer.site{margin-left:0}
+.mobile-head{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#4a3520,#a8895a);color:#fff;padding:10px 16px;position:sticky;top:0;z-index:50}
+.mobile-head.mn{font-family:"Shippori Mincho",serif;font-size:18px;letter-spacing:.1em}
+.mobile-head a{color:#fff;text-decoration:none;border:1.5px solid #fff;padding:6px 12px;font-size:12.5px;font-weight:700}
+.cards{grid-template-columns:repeat(2,1fr)}
+.pickup-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+#splash{position:fixed;inset:0;z-index:200;background:linear-gradient(135deg,#a37e3f 0%,#d9b878 30%,#f4e3b2 50%,#dcbc7f 68%,#b18d4e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:splashfade .6s ease 1.15s forwards}
+#splash .mono{width:104px;height:104px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:44px;color:#fff;text-shadow:0 1px 6px rgba(120,90,30,.45)}
+#splash .sc{font-family:"Snell Roundhand","Hiragino Mincho ProN",cursive;color:#fff;font-size:15px;letter-spacing:.14em}
+#splash .lg{font-family:Georgia,"Hiragino Mincho ProN",serif;color:#fff;font-size:26px;letter-spacing:.3em;text-shadow:0 1px 6px rgba(120,90,30,.45);padding-left:.3em}
+@keyframes splashfade{to{opacity:0;visibility:hidden}}
+.mbar{display:none}.bbar{display:none}.mnav{display:none}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dsel{background:linear-gradient(180deg,#c8ab72,#b08d57);color:#fff;text-align:center;padding:13px;font-size:16px;letter-spacing:.14em;margin:6px 0 10px}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dgrid button{background:#fff;border:1px solid #cfc4a6;color:#5d4c2a;padding:11px 0;font-size:14px;cursor:pointer;font-family:inherit}
+@media(max-width:1023px){
+.mbar{display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,#c8ab72,#a8894f);color:#fff;padding:8px 12px;position:sticky;top:0;z-index:60}
+.mbar .mm{width:40px;height:40px;border:1.2px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:serif;font-size:19px;flex:none}
+.mbar .mc{flex:1;text-align:center;line-height:1.55}
+.mbar .mc .tel{font-size:16px;letter-spacing:.05em}
+.mbar .mc .hrs{font-size:10.5px;opacity:.95}
+.mbar .burger{background:none;border:0;color:#fff;font-size:23px;padding:6px;flex:none;cursor:pointer}
+.mnav{display:none;background:#f7f2e7;border-bottom:1px solid #ddd2ba;position:sticky;top:57px;z-index:59}
+.mnav.open{display:block}
+.mnav a{display:block;padding:12px 18px;color:#6d5a33;text-decoration:none;border-top:1px solid #e7dcc2;font-size:14px;letter-spacing:.12em}
+.bbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:2px;background:rgba(60,48,28,.3);padding:2px}
+.bbar a{flex:1;background:linear-gradient(180deg,#d3b57c,#b08d57);color:#fff;text-align:center;padding:11px 0;font-size:13.5px;text-decoration:none;letter-spacing:.06em}
+body{padding-bottom:54px}
+.hero{height:56vh;min-height:330px}
+.cards{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
-<body>
-<div class="demo-bar">デモサイトです。店舗・スタッフ・料金・空き状況はすべて架空の設定です。実在の店舗とは関係ありません。</div>
-<header class="site"><div class="wrap header-in">
-<a class="logo" href="#top">ゆるり水戸<small>RELAXATION SALON YURURI MITO</small></a>
-<a class="btn small" href="#book1">空きを見る</a>
-</div></header>
+<body><div id="splash"><div class="mono">ゆ</div><div class="sc">Relaxation Salon</div><div class="lg">YURURI MITO</div></div>
+<header class="mbar"><div class="mm">ゆ</div><div class="mc"><div class="tel">📱 029-000-0000</div><div class="hrs">OPEN：10:00～22:00　RECEPTION：9:30～21:00</div></div><button class="burger" id="burger" type="button" aria-label="メニュー">☰</button></header>
+<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="asis3-system.html">SYSTEM</a></nav>
 
+<div class="demo-bar">デモサイトです。店舗・スタッフ・出勤・料金はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
+
+<aside class="sidebar">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b>水戸</b></p>
+<nav class="gnav">
+<a href="#top">HOME<small>-ホーム-</small></a>
+<a href="#topics">TOPICS<small>-お知らせ-</small></a>
+<a href="asis3-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
+<a href="#therapist">THERAPIST<small>-セラピスト-</small></a>
+<a href="asis3-system.html">SYSTEM<small>-料金システム-</small></a>
+<a href="#access">ACCESS<small>-アクセス-</small></a>
+</nav>
+<div class="side-foot">
+<a class="side-btn" href="asis3-schedule.html">WEBで予約</a>
+<a class="side-btn" href="#access">LINEで予約</a>
+<p class="side-tel">029-000-0000</p>
+<p class="side-hours">OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
+</div>
+</aside>
+
+<div class="mobile-head">
+<span class="mn">ゆるり水戸</span>
+<a href="tel:0290000000">029-000-0000</a>
+<a href="asis3-schedule.html">出勤情報</a>
+</div>
+
+<div class="main">
 <div class="hero" id="top">
-<img src="img/hero.jpg" alt="ゆるり水戸の完全個室">
-<div class="hero-veil"></div>
-<div class="hero-copy"><div class="wrap">
-<h1>今夜、空いてます。<br>21時まで受付。</h1>
-<p class="lead">水戸駅南口から徒歩3分、全室個室のリラクゼーション。思い立ったときに、そのまま予約できます。電話も会員登録もいりません。</p>
-</div></div>
+<video autoplay muted loop playsinline poster="img/hero-woman.webp"><source src="img/hero.mp4" type="video/mp4"></video>
+<div class="hero-c">
+<div class="monogram">ゆ</div>
+<p class="script">Luxury Men's Salon</p>
+<p class="shopname">ゆるり <b style="color:#ffe9b0">水戸</b></p>
 </div>
+</div>
+<div class="news-bar">NEWS　11月もよろしくお願いします。出勤情報を公開しました。ご新規様は初回500円OFFです。（デモ）</div>
 
-<div class="wrap booking-wrap" id="book1">
-<div class="booking" data-book>
-<h3>空きを見て、そのまま予約</h3>
-<p class="sub">条件は4つだけ。時間の選択だけでも予約できます。メニューは予約のあとで選んでください。</p>
-<div class="field"><label>日付</label><div class="chips dates"></div></div>
-<div class="grid2">
-<div class="field"><label>施術時間の合計</label><div class="chips durs">
-<button type="button" class="chip" data-dur="60">60分</button>
-<button type="button" class="chip on" data-dur="90">90分</button>
-<button type="button" class="chip" data-dur="110">110分</button>
-<button type="button" class="chip" data-dur="120">120分</button>
-</div><p class="slot-note">組み合わせの例：もみほぐし60分＋足つぼ30分なら「90分」を選んでください。</p></div>
-<div class="field"><label>人数</label><div class="chips people">
-<button type="button" class="chip on" data-p="1">1名</button>
-<button type="button" class="chip" data-p="2">2名</button>
-</div><p class="slot-note">2名は同室ではなく隣り合う個室で同時にご案内します。</p></div>
-</div>
-<div class="field"><label>空き時間（埋まっている時間の前後も、ここに全部出ています）</label><div class="slots"></div>
-<p class="slot-note">○ 空きあり ／ △ 残りわずか ／ × 受付終了（デモ用の仮データです）</p></div>
-<div class="field"><label>担当の指名（第3希望まで・1名300円）</label><div class="grid3">
-<select class="staff1"><option value="おまかせ">第1希望：おまかせ</option><option>高橋 凛</option><option>中村 咲</option><option>渡辺 栞</option><option>小野 遥</option></select>
-<select class="staff2"><option value="なし">第2希望：なし</option><option>高橋 凛</option><option>中村 咲</option><option>渡辺 栞</option><option>小野 遥</option><option value="おまかせ">おまかせ</option></select>
-<select class="staff3"><option value="なし">第3希望：なし</option><option>高橋 凛</option><option>中村 咲</option><option>渡辺 栞</option><option>小野 遥</option><option value="おまかせ">おまかせ</option></select>
-</div></div>
-<div class="grid2">
-<div class="field"><label>お名前</label><input type="text" class="gname" placeholder="例）水戸 太郎"></div>
-<div class="field"><label>電話番号</label><input type="tel" class="gtel" placeholder="例）090-0000-0000"></div>
-</div>
-<div class="est"><div>目安の合計（メニューは予約後に選択）</div><div class="price est-price">¥6,900</div></div>
-<button type="button" class="btn reserve" style="width:100%">予約内容を確認する</button>
-<div class="review">
-<p class="warn">この状態では、まだ予約は完了していません。</p>
-<p class="review-detail" style="margin:8px 0 14px;font-size:14.5px"></p>
-<button type="button" class="btn do-confirm" style="width:100%">この内容で確定する</button>
-</div>
-<div class="confirm">
-<p style="font-size:13px;font-weight:700;color:var(--green)">ご予約が確定しました（デモ）</p>
-<p class="no cno">YR-000000</p>
-<p class="cdetail" style="font-size:14px;margin-top:6px"></p>
-<div class="menu-pick show" style="display:block">
-<p style="font-weight:700;color:var(--green);margin:16px 0 8px;font-size:14px">最後に、メニューを選んでください（予約後に選べます・組み合わせ自由）</p>
-<div class="chips menus">
-<button type="button" class="chip mchip">もみほぐし</button>
-<button type="button" class="chip mchip">アロマリンパ</button>
-<button type="button" class="chip mchip">足つぼ</button>
-<button type="button" class="chip mchip">ヘッドスパ</button>
-<button type="button" class="chip mchip">タイ古式</button>
-</div>
-<p class="slot-note menu-note">未選択でも大丈夫です。当日カウンセリングで決められます。</p>
-</div>
-</div>
-</div>
-</div>
-
-<section>
+<section id="topics">
 <div class="wrap">
-<div class="sec-head"><p class="en">WHY BOOK</p><h2>予約する理由を、先に6つ</h2></div>
-<div class="bene">
-<div class="b"><h3>思い立ったら即予約</h3><p>ネット予約は24時間受付。電話をかける必要はありません。</p></div>
-<div class="b"><h3>当日の予約ができます</h3><p>「あと1時間だけ空いた」でも大丈夫。その日の空きは全部このページに出ています。</p></div>
-<div class="b"><h3>駅から3分、車でも来られます</h3><p>水戸駅南口から徒歩3分。提携駐車場が4台あるので、車の方も同じ入口です。</p></div>
-<div class="b"><h3>担当を指名できます</h3><p>第3希望まで指定できます。得意分野は下のスタッフ紹介で確認してください。</p></div>
-<div class="b"><h3>予約番号で確認できます</h3><p>確定すると番号がその場で出ます。メモは不要、番号ひとつで内容が分かります。</p></div>
-<div class="b"><h3>変更・キャンセルも電話なし</h3><p>予定が変わったら、予約番号と電話番号で変更できます。キャンセル料はかかりません。</p></div>
-</div>
-<div class="num3" style="margin-top:16px">
-<div class="n"><p class="no">01</p><h3>登録なしで予約</h3><p>名前と電話番号だけ。会員登録もアプリのダウンロードもいりません。</p></div>
-<div class="n"><p class="no">02</p><h3>前回の条件を覚えています</h3><p>2回目からは、予約番号で前回の担当とコースを引き継げます。</p></div>
-<div class="n"><p class="no">03</p><h3>初回は500円引き</h3><p>初めての方は全コース500円引き。クーポンの提示も不要です。</p></div>
-</div>
-</div>
-</section>
-
-<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="sec-head"><p class="en">PRICE</p><h2>料金は、まずこの3つだけ</h2>
-<p>代表の3コースだけ先に置きます。全部の料金表は、ページの下の方に分けて置いてあります。</p></div>
-<div class="price3">
-<div class="pcard"><h3>もみほぐし 60分</h3><p class="yen">¥4,400<small>（税込）</small></p><p style="font-size:13px;color:var(--sub)">初回 ¥3,900。平日・土日祝とも同価格です。</p></div>
-<div class="pcard"><h3>足つぼ 60分</h3><p class="yen">¥4,900<small>（税込）</small></p><p style="font-size:13px;color:var(--sub)">初回 ¥4,400。歩く仕事の多い方に。</p></div>
-<div class="pcard"><h3>ヘッド＋肩 30分</h3><p class="yen">¥2,900<small>（税込）</small></p><p style="font-size:13px;color:var(--sub)">初回 ¥2,400。短い空き時間でも受けられます。</p></div>
-</div>
-<p style="margin-top:18px"><a href="#pricelist" style="color:var(--green);font-weight:700">料金表の全部を見る →</a></p>
-</div>
-</section>
-
-<section>
-<div class="wrap">
-<div class="split">
-<div>
-<div class="sec-head" style="margin-bottom:14px"><p class="en">MENU AFTER</p><h2>メニューは、予約のあとで選べます</h2></div>
-<p style="color:var(--sub)">一番迷う「何を受けるか」は、予約を済ませてからで大丈夫です。確定後にこのページで選ぶことも、当日カウンセリングで一緒に決めることもできます。</p>
-<p style="color:var(--sub);margin-top:10px">組み合わせは自由です。たとえば、もみほぐし60分＋ヘッドスパ30分なら、予約のときは「90分」を選ぶだけ。あとは後から決まります。</p>
-<p style="margin-top:14px"><a href="#book1" style="color:var(--green);font-weight:700">時間を先に押さえる →</a></p>
-</div>
-<img src="img/treatment.jpg" alt="肩と背中の施術風景">
-</div>
-</div>
-</section>
-
-<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="sec-head"><p class="en">STAFF</p><h2>担当する人（指名は第3希望まで）</h2></div>
-<div class="staff-grid">
-<div class="staff"><div class="avatar">凛</div><h3>高橋 凛</h3><p class="skill">アロマリンパ × むくみ・冷え</p></div>
-<div class="staff"><div class="avatar">咲</div><h3>中村 咲</h3><p class="skill">もみほぐし × 肩こり・腰の重さ</p></div>
-<div class="staff"><div class="avatar">栞</div><h3>渡辺 栞</h3><p class="skill">ヘッドスパ × 眼精疲労・睡眠</p></div>
-<div class="staff"><div class="avatar">遥</div><h3>小野 遥</h3><p class="skill">タイ古式 × 全身の伸び</p></div>
-</div>
-<div class="split" style="margin-top:34px">
-<img src="img/reception.jpg" alt="受付と待合スペース">
-<div>
-<h2 class="mincho" style="font-size:24px;color:var(--green)">部屋は、全室個室です</h2>
-<p style="color:var(--sub);margin-top:10px">施術室は扉のある完全個室が4室。受付から個室までは木と石の内装で統一し、他のお客様と顔を合わせにくい動線にしています。施術着・タオルは無料、鍵付きロッカー完備です。</p>
-<p style="color:var(--sub);margin-top:8px">営業 10:00–22:00（最終受付 21:00）／ JR水戸駅 南口 徒歩3分 ／ 提携駐車場4台。</p>
-</div>
-</div>
-</div>
-</section>
-
-<section>
-<div class="wrap">
-<div class="sec-head"><p class="en">FIRST TIME</p><h2>初めての方へ — 当日の流れ</h2>
-<p>ここは初めての方だけ読んでください。予約そのものは、上のフォームで先に済ませて大丈夫です。</p></div>
-<div class="flow">
-<div class="f"><h3>受付</h3><p>予約番号かお名前をお伝えください。お飲み物をお出しします。</p></div>
-<div class="f"><h3>カウンセリング</h3><p>今日の疲れと圧の強さの希望を聞きます。ここでコースと料金が確定します。</p></div>
-<div class="f"><h3>着替え</h3><p>施術着は無料。スーツのまま来て大丈夫です。</p></div>
-<div class="f"><h3>施術</h3><p>選んだ組み合わせで施術します。圧の調整は途中でも言ってください。</p></div>
-<div class="f"><h3>仕上げ</h3><p>ハーブティーをお出しします。着替えの時間も施術時間には含みません。</p></div>
-<div class="f"><h3>お見送り</h3><p>お会計は施術後。現金・カード・QR対応です。</p></div>
-</div>
-</div>
-</section>
-
-<section id="pricelist" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="sec-head"><p class="en">PRICE LIST</p><h2>料金表</h2>
-<p>初回は全コース500円引き。組み合わせた場合も、合計時間の料金で計算します。</p></div>
-<table class="menu">
-<tr><th style="width:55%">コース</th><th>時間</th><th style="text-align:right">料金（税込）</th></tr>
-<tr><td>もみほぐし</td><td>60分 ／ 90分 ／ 120分</td><td class="yen">¥4,400 ／ ¥6,900 ／ ¥9,900</td></tr>
-<tr><td>アロマリンパトリートメント</td><td>60分 ／ 90分 ／ 120分</td><td class="yen">¥5,500 ／ ¥8,300 ／ ¥11,000</td></tr>
-<tr><td>タイ古式</td><td>60分 ／ 90分</td><td class="yen">¥5,300 ／ ¥7,900</td></tr>
-<tr><td>ドライヘッドスパ</td><td>30分 ／ 45分</td><td class="yen">¥2,900 ／ ¥3,900</td></tr>
-<tr><td>足つぼリフレクソロジー</td><td>30分 ／ 60分</td><td class="yen">¥2,900 ／ ¥4,900</td></tr>
-<tr><td>セット：全身ほぐし＋足つぼ＋ヘッド</td><td>120分</td><td class="yen">¥11,600</td></tr>
-<tr><td>延長 ／ 担当の指名</td><td>10分 ／ 1名</td><td class="yen">¥1,100 ／ ¥300</td></tr>
-</table>
-<ul class="news" style="margin-top:36px">
-<li><span class="d">2026.11.02</span><span>11月の営業案内：休業日はありません。最終受付は21:00です。（デモ用のお知らせ）</span></li>
-<li><span class="d">2026.11.02</span><span>初回500円引きは当面継続します。クーポンの提示は不要です。（デモ用のお知らせ）</span></li>
+<div class="sec-head"><p class="en">TOPICS</p><p class="ja">お知らせ</p><div class="rule"></div></div>
+<ul class="topics">
+<li><span class="d">求人情報 2026/11/02</span><span>スタッフさん大募集！〜当店の看板スタッフになりませんか〜（デモ）</span></li>
+<li><span class="d">お知らせ 2026/11/02</span><span>♡簡単WEB予約のご案内♡（デモ）</span></li>
 </ul>
-</div>
-</section>
-
-<section>
-<div class="wrap">
-<div class="sec-head"><p class="en">FAQ</p><h2>よく聞かれること</h2></div>
-<details class="faq"><summary>メニューを決めずに予約して、本当に大丈夫ですか？</summary><p>大丈夫です。時間だけ先に押さえて、メニューは予約の後か当日に決められます。組み合わせの例は予約フォームの脇に書いてあります。</p></details>
-<details class="faq"><summary>希望の時間が埋まっていたらどうなりますか？</summary><p>空き時間の一覧に、その前後の時間も全部出ています。行き止まりにはならないので、前後で選んでください。</p></details>
-<details class="faq"><summary>当日のキャンセルはできますか？</summary><p>できます。キャンセル料はかかりません。予約番号と電話番号で、電話なしでも変更できます。</p></details>
-<details class="faq"><summary>「マッサージ」とは何が違いますか？</summary><p>当サロンはリラクゼーション目的の施術で、治療ではありません。不調が続く場合は医療機関をおすすめします。</p></details>
+<a class="gold-btn" href="#topics">TOPICS一覧はこちら</a>
 </div>
 </section>
 
 <section style="padding-top:0">
 <div class="wrap">
-<div class="sec-head"><p class="en">BOOKING</p><h2>最後にもう一度、予約はこちら</h2></div>
-<div class="booking" data-book>
-<h3>空きを見て、そのまま予約</h3>
-<p class="sub">時間の選択だけでも予約できます。メニューは予約のあとで選んでください。</p>
-<div class="field"><label>日付</label><div class="chips dates"></div></div>
-<div class="grid2">
-<div class="field"><label>施術時間の合計</label><div class="chips durs">
-<button type="button" class="chip" data-dur="60">60分</button>
-<button type="button" class="chip on" data-dur="90">90分</button>
-<button type="button" class="chip" data-dur="110">110分</button>
-<button type="button" class="chip" data-dur="120">120分</button>
-</div></div>
-<div class="field"><label>人数</label><div class="chips people">
-<button type="button" class="chip on" data-p="1">1名</button>
-<button type="button" class="chip" data-p="2">2名</button>
-</div></div>
-</div>
-<div class="field"><label>空き時間</label><div class="slots"></div></div>
-<div class="field"><label>担当の指名（第1希望）</label>
-<select class="staff1"><option value="おまかせ">おまかせ（最短でご案内）</option><option>高橋 凛</option><option>中村 咲</option><option>渡辺 栞</option><option>小野 遥</option></select></div>
-<div class="grid2">
-<div class="field"><label>お名前</label><input type="text" class="gname" placeholder="例）水戸 太郎"></div>
-<div class="field"><label>電話番号</label><input type="tel" class="gtel" placeholder="例）090-0000-0000"></div>
-</div>
-<div class="est"><div>目安の合計</div><div class="price est-price">¥6,900</div></div>
-<button type="button" class="btn reserve" style="width:100%">予約内容を確認する</button>
-<div class="review">
-<p class="warn">この状態では、まだ予約は完了していません。</p>
-<p class="review-detail" style="margin:8px 0 14px;font-size:14.5px"></p>
-<button type="button" class="btn do-confirm" style="width:100%">この内容で確定する</button>
-</div>
-<div class="confirm">
-<p style="font-size:13px;font-weight:700;color:var(--green)">ご予約が確定しました（デモ）</p>
-<p class="no cno">YR-000000</p>
-<p class="cdetail" style="font-size:14px;margin-top:6px"></p>
-</div>
-</div>
-<p style="font-size:12.5px;color:var(--sub);margin-top:16px">アクセス：JR水戸駅 南口から徒歩3分（茨城県水戸市城南1-2-3 ゆるりビル2F・架空）／ 提携駐車場4台 ／ 10:00–22:00（最終受付 21:00）／ 電話 029-000-0000（架空）</p>
+<div class="sec-head"><p class="en">PICK UP</p><p class="ja">ピックアップ</p><div class="rule"></div></div>
+<div class="pickup-grid" id="pickupGrid"></div>
 </div>
 </section>
 
-<footer class="site"><div class="wrap">
-<p style="font-family:'Shippori Mincho',serif;color:#fff;font-size:18px;margin-bottom:8px">ゆるり水戸</p>
-<p>このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。ベンチマーク実LPの区間分解（りらくる）に基づいて設計しました。実在の店舗・人物とは関係ありません。施術はリラクゼーション目的で、治療行為ではありません。</p>
-</div></footer>
-<div class="bottom-bar"><a class="sub2" href="#pricelist">料金表</a><a class="main" href="#book1">空きを見て予約する</a></div>
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">X</p><p class="ja">旧TWITTER</p><div class="rule"></div></div>
+<p style="text-align:center"><a href="#top" style="color:var(--gold);font-weight:700">X（旧TWITTER）はこちら（デモ）</a></p>
+</div>
+</section>
 
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">SCHEDULE</p><p class="ja">スケジュール</p><div class="rule"></div></div>
+<div class="dsel" id="dsel"></div><div class="dgrid" id="dateGrid"></div><div class="weekrow"><button class="week-btn" id="weekBtn" type="button">次の週</button></div><div class="cards" id="todayCards" style="margin-top:14px"></div>
+<a class="gold-btn" href="asis3-schedule.html">出勤情報一覧はこちら</a>
+</div>
+</section>
+
+<section id="therapist" style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">THERAPIST</p><p class="ja">セラピスト</p><div class="rule"></div></div>
+<div class="cards" id="therapistCards"></div>
+<a class="gold-btn" href="asis3-schedule.html">セラピスト一覧はこちら</a>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">BLOG</p><p class="ja">ブログ</p><div class="rule"></div></div>
+<div class="blog">
+<article><p class="d">2026.11.02 10:00</p><h3>新人スタッフ入店</h3><p>もみほぐしを得意とする小松 彩花が入店しました。肩こりや腰の重さが気になる方に、落ち着いた施術でお応えします。はじめの10分で圧の強さを確認しながら進めますので、初めての方も安心してお越しください。（デモ）</p></article>
+<article><p class="d">2026.11.01 10:00</p><h3>新人スタッフ入店</h3><p>ヘッドスパを得意とする沢田 菜々子が入店しました。眼精疲労や眠りの浅さが気になる方にどうぞ。よろしくお願いいたします。（デモ）</p></article>
+</div>
+<a class="gold-btn" href="#top">ブログを見る</a>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">CREDIT</p><p class="ja">クレジット</p><div class="rule"></div></div>
+<div class="credit">
+<p>クレジットカードをご利用の際は必ずご予約時にお伝え下さい。</p>
+<p style="margin-top:6px">VISA、MASTER、JCB、AMEX、DINERSがご利用になれます。</p>
+<div class="brands"><span style="color:#1a1f71">VISA</span><span style="color:#3f5ba9">JCB</span><span>Mastercard</span><span style="color:#2e77bc">AMEX</span><span style="color:#00427a">Diners Club</span></div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">CONCEPT</p><p class="ja">コンセプト</p><div class="rule"></div></div>
+<div class="concept">
+<p>丁寧な接客と確かな技術を持ち合わせたスタッフのみ在籍しています。完全個室の静かな空間で、非日常の癒やしをお届けいたします。（デモ文面）</p>
+<img src="img/reception.jpg" alt="受付と待合スペース" style="margin:26px auto 0;width:100%;max-width:720px">
+</div>
+</div>
+</section>
+
+<section id="access" style="padding-top:0">
+<div class="wrap">
+<div class="sec-head"><p class="en">ACCESS</p><p class="ja">アクセス</p><div class="rule"></div></div>
+<div class="room">
+<h3>水戸ルーム</h3>
+<p>茨城県水戸市城南２丁目（架空の住所表記です）</p>
+<p>JR常磐線 水戸駅 徒歩３分 ※南口</p>
+<p>提携駐車場が4台ございます。お車の方はご予約のときにお伝えください。</p>
+<p style="margin-top:12px">TEL： 029-000-0000（架空）<br>Open 10:00 ～ 22:00</p>
+</div>
+<div class="foot-btns" style="margin-top:34px">
+<a class="gold-btn" href="asis3-schedule.html">Reserve ご予約</a>
+<a class="gold-btn" href="asis3-system.html">Q&amp;A よくあるご質問</a>
+<a class="gold-btn" href="#topics">Recruit 求人情報</a>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<p class="tel">029-000-0000（架空）</p>
+<p>OPEN：10:00～22:00　／　RECEPTION：9:30～21:00</p>
+<p style="max-width:760px;margin:14px auto 0">このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。構成・並び・見せ方・色と書体の印象はゴールサイト（THE PREMIUM SPA）の実ページに沿って作り、店名・スタッフ名・料金・電話番号などのテキストを差し替えています。スタッフ写真には、以前に生成した女性の写真（完成カット）を画角を変えて使用しています（テスト版）。実在の店舗・人物とは関係ありません。</p>
+</footer>
+
+<script src="roster.js"></script>
 <script>
 (function(){
-  var basePrice={60:4400,90:6900,110:9800,120:11000};
-  var wd=["日","月","火","水","木","金","土"];
-  function fmt(n){return "¥"+n.toLocaleString("ja-JP");}
-  function seedRand(seed){var x=seed;return function(){x=(x*1103515245+12345)&0x7fffffff;return x/0x7fffffff;};}
-  document.querySelectorAll("[data-book]").forEach(function(root){
-    var state={date:null,dateLabel:"",dur:90,people:1,slot:null};
-    var dc=root.querySelector(".dates"); var today=new Date();
-    for(var i=0;i<7;i++){(function(i){
-      var d=new Date(today.getFullYear(),today.getMonth(),today.getDate()+i);
-      var b=document.createElement("button"); b.type="button"; b.className="chip"+(i===0?" on":"");
-      b.innerHTML=(i===0?"今日":i===1?"明日":(d.getMonth()+1)+"/"+d.getDate())+"<small>"+(d.getMonth()+1)+"/"+d.getDate()+"（"+wd[d.getDay()]+"）</small>";
-      b.setAttribute("data-key",d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate());
-      b.setAttribute("data-label",(d.getMonth()+1)+"/"+d.getDate()+"（"+wd[d.getDay()]+"）");
-      if(i===0){state.date=b.getAttribute("data-key");state.dateLabel=b.getAttribute("data-label");}
-      b.addEventListener("click",function(){dc.querySelectorAll(".chip").forEach(function(c){c.classList.remove("on")});b.classList.add("on");state.date=b.getAttribute("data-key");state.dateLabel=b.getAttribute("data-label");state.slot=null;render();});
-      dc.appendChild(b);
-    })(i);}
-    var sg=root.querySelector(".slots");
-    function seed(key){var s=0;for(var i=0;i<key.length;i++){s+=key.charCodeAt(i)*(i+3);}return s+state.dur*7;}
-    function render(){ sg.innerHTML=""; state.slot=null; var rnd=seedRand(seed(state.date||"x"));
-      var hours=[]; for(var h=10;h<=21;h++){hours.push(h+":00"); if(h<21)hours.push(h+":30");}
-      hours.forEach(function(t){ var r=rnd(); var cls=r<0.22?"full":(r<0.45?"few":"ok");
-        var b=document.createElement("button"); b.type="button"; b.className="slot "+cls;
-        b.innerHTML=t+'<span class="st">'+(cls==="full"?"× 受付終了":cls==="few"?"△ 残りわずか":"○ 空きあり")+"</span>";
-        if(cls!=="full"){ b.addEventListener("click",function(){ sg.querySelectorAll(".slot").forEach(function(s){s.classList.remove("on")}); b.classList.add("on"); state.slot=t; }); }
-        sg.appendChild(b); });
-    }
-    render();
-    function staffText(){
-      var s1=root.querySelector(".staff1"); if(!s1) return "おまかせ";
-      var t=s1.value;
-      var s2=root.querySelector(".staff2"), s3=root.querySelector(".staff3");
-      if(s2 && s2.value!=="なし") t+=" ／ 第2希望："+s2.value;
-      if(s3 && s3.value!=="なし") t+=" ／ 第3希望："+s3.value;
-      return t;
-    }
-    function est(){ var nom=0; var s1=root.querySelector(".staff1"); if(s1 && s1.value!=="おまかせ") nom=300;
-      root.querySelector(".est-price").textContent=fmt((basePrice[state.dur]+nom)*state.people); }
-    root.querySelectorAll(".durs .chip").forEach(function(c){ c.addEventListener("click",function(){ root.querySelectorAll(".durs .chip").forEach(function(x){x.classList.remove("on")}); c.classList.add("on"); state.dur=parseInt(c.getAttribute("data-dur"),10); render(); est(); }); });
-    var pp=root.querySelector(".people");
-    if(pp){ pp.querySelectorAll(".chip").forEach(function(c){ c.addEventListener("click",function(){ pp.querySelectorAll(".chip").forEach(function(x){x.classList.remove("on")}); c.classList.add("on"); state.people=parseInt(c.getAttribute("data-p"),10); est(); }); }); }
-    ["staff1","staff2","staff3"].forEach(function(k){ var s=root.querySelector("."+k); if(s) s.addEventListener("change",est); });
-    est();
-    function detailText(){
-      var name=root.querySelector(".gname").value.trim();
-      return state.dateLabel+" "+state.slot+"〜 ／ 施術時間 "+state.dur+"分 ／ "+state.people+"名 ／ 担当："+staffText()+(name?" ／ "+name+" 様":"")+" ／ 目安 "+root.querySelector(".est-price").textContent;
-    }
-    root.querySelector(".reserve").addEventListener("click",function(){
-      if(!state.slot){ alert("空き時間を選んでください。"); sg.scrollIntoView({behavior:"smooth",block:"center"}); return; }
-      root.querySelector(".review-detail").textContent=detailText();
-      var rv=root.querySelector(".review"); rv.classList.add("show"); rv.scrollIntoView({behavior:"smooth",block:"center"});
-    });
-    root.querySelector(".do-confirm").addEventListener("click",function(){
-      root.querySelector(".review").classList.remove("show");
-      root.querySelector(".cno").textContent="予約番号 YR-"+Math.floor(100000+Math.random()*900000);
-      root.querySelector(".cdetail").textContent=detailText();
-      var box=root.querySelector(".confirm"); box.classList.add("show"); box.scrollIntoView({behavior:"smooth",block:"center"});
-    });
-    var mp=root.querySelector(".menus");
-    if(mp){ mp.querySelectorAll(".mchip").forEach(function(c){ c.addEventListener("click",function(){
-      c.classList.toggle("on");
-      var sel=[]; mp.querySelectorAll(".mchip.on").forEach(function(x){ sel.push(x.textContent); });
-      var note=root.querySelector(".menu-note");
-      if(note) note.textContent=sel.length?("選択中："+sel.join(" ＋ ")+" — 当日この内容でご案内します。変更もできます。"):"未選択でも大丈夫です。当日カウンセリングで決められます。";
-    }); }); }
+  function badges(s){ return '<div class="badges">'+s.badge.map(function(b){return '<span class="bdg">'+b+"</span>";}).join("")+"</div>"; }
+  function card(s,status){
+    return '<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
+      +'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
+      +'<p class="hrs">🕐 '+status+"</p></div>"
+      +(status!=="-----" ? '<div class="status">ご予約可能</div>' : "");
+  }
+  var pg=document.getElementById("pickupGrid");
+  STAFF.slice(0,26).forEach(function(s){
+    var d=document.createElement("div"); d.className="pcard";
+    d.innerHTML='<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"></div><p class="nm">'+s.name+"("+s.age+")</p>";
+    pg.appendChild(d);
   });
+  var th=document.getElementById("therapistCards");
+  var today0=new Date().getDay();
+  STAFF.forEach(function(s){
+    var working=s.days.indexOf(today0)>=0;
+    var d=document.createElement("div"); d.className="scard";
+    d.innerHTML=card(s, working ? (s.shift[0]+":00～"+s.shift[1]+":00") : "-----");
+    th.appendChild(d);
+  });
+  var wd=["日","月","火","水","木","金","土"];
+  var dates=[]; var now=new Date();
+  for(var i=0;i<14;i++){ dates.push(new Date(now.getFullYear(),now.getMonth(),now.getDate()+i)); }
+  var week=0; var sel=dates[0];
+  var dsel=document.getElementById("dsel"), grid=document.getElementById("dateGrid"), tc=document.getElementById("todayCards"), wb=document.getElementById("weekBtn");
+  function fmt(d){ return (d.getMonth()+1)+"月"+("0"+d.getDate()).slice(-2)+"日("+wd[d.getDay()]+")"; }
+  function renderDates(){
+    dsel.textContent=fmt(sel);
+    grid.innerHTML="";
+    dates.forEach(function(d,idx){
+      if(idx>=week*7 && idx<week*7+7 && d.getTime()!==sel.getTime()){
+        var b=document.createElement("button"); b.type="button"; b.textContent=fmt(d);
+        b.addEventListener("click",function(){ sel=d; renderDates(); renderDay(); });
+        grid.appendChild(b);
+      }
+    });
+    wb.textContent = week===0 ? "次の週" : "前の週";
+  }
+  function renderDay(){
+    tc.innerHTML=""; var shown=0;
+    STAFF.forEach(function(s){
+      if(shown>=4) return;
+      if(s.days.indexOf(sel.getDay())<0) return;
+      var d=document.createElement("div"); d.className="scard";
+      d.innerHTML=card(s, s.shift[0]+":00～"+s.shift[1]+":00");
+      tc.appendChild(d); shown++;
+    });
+  }
+  wb.addEventListener("click",function(){ week=week===0?1:0; sel=dates[week*7]; renderDates(); renderDay(); });
+  renderDates(); renderDay();
 })();
 </script>
+<div class="bbar"><a href="tel:0290000000">📞 電話予約</a><a href="asis3-schedule.html">✉ WEB予約</a><a href="#top">LINE予約</a></div>
+<script>document.getElementById("burger").addEventListener("click",function(){document.getElementById("mnav").classList.toggle("open");});</script>
 </body>
 </html>
