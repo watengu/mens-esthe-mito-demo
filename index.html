@@ -122,11 +122,12 @@ body{padding-bottom:54px}
 .hero{height:56vh;min-height:330px}
 .cards{grid-template-columns:repeat(2,1fr)}
 }
+.cards a.cardlink,.pgrid a.cardlink{text-decoration:none;color:inherit;display:block}
 </style>
 </head>
 <body><div id="splash"><div class="mono">ゆ</div><div class="sc">Relaxation Salon</div><div class="lg">YURURI MITO</div></div>
 <header class="mbar"><div class="mm">ゆ</div><div class="mc"><div class="tel">📱 029-000-0000</div><div class="hrs">OPEN：10:00～22:00　RECEPTION：9:30～21:00</div></div><button class="burger" id="burger" type="button" aria-label="メニュー">☰</button></header>
-<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="asis3-system.html">SYSTEM</a></nav>
+<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="therapist.html">THERAPIST</a><a href="asis3-system.html">SYSTEM</a><a href="topics.html">TOPICS</a><a href="access.html">ACCESS</a><a href="faq.html">FAQ</a></nav>
 
 <div class="demo-bar">デモサイトです。店舗・スタッフ・出勤・料金はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
 
@@ -136,11 +137,12 @@ body{padding-bottom:54px}
 <p class="shopname">ゆるり <b>水戸</b></p>
 <nav class="gnav">
 <a href="#top">HOME<small>-ホーム-</small></a>
-<a href="#topics">TOPICS<small>-お知らせ-</small></a>
+<a href="topics.html">TOPICS<small>-お知らせ-</small></a>
 <a href="asis3-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
-<a href="#therapist">THERAPIST<small>-セラピスト-</small></a>
+<a href="therapist.html">THERAPIST<small>-セラピスト-</small></a>
 <a href="asis3-system.html">SYSTEM<small>-料金システム-</small></a>
-<a href="#access">ACCESS<small>-アクセス-</small></a>
+<a href="access.html">ACCESS<small>-アクセス-</small></a>
+<a href="faq.html">FAQ<small>-よくある質問-</small></a>
 </nav>
 <div class="side-foot">
 <a class="side-btn" href="asis3-schedule.html">WEBで予約</a>
@@ -174,7 +176,7 @@ body{padding-bottom:54px}
 <li><span class="d">求人情報 2026/11/02</span><span>スタッフさん大募集！〜当店の看板スタッフになりませんか〜（デモ）</span></li>
 <li><span class="d">お知らせ 2026/11/02</span><span>♡簡単WEB予約のご案内♡（デモ）</span></li>
 </ul>
-<a class="gold-btn" href="#topics">TOPICS一覧はこちら</a>
+<a class="gold-btn" href="topics.html">TOPICS一覧はこちら</a>
 </div>
 </section>
 
@@ -204,7 +206,7 @@ body{padding-bottom:54px}
 <div class="wrap">
 <div class="sec-head"><p class="en">THERAPIST</p><p class="ja">セラピスト</p><div class="rule"></div></div>
 <div class="cards" id="therapistCards"></div>
-<a class="gold-btn" href="asis3-schedule.html">セラピスト一覧はこちら</a>
+<a class="gold-btn" href="therapist.html">セラピスト一覧はこちら</a>
 </div>
 </section>
 
@@ -269,24 +271,24 @@ body{padding-bottom:54px}
 <script>
 (function(){
   function badges(s){ return '<div class="badges">'+s.badge.map(function(b){return '<span class="bdg">'+b+"</span>";}).join("")+"</div>"; }
-  function card(s,status){
-    return '<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
+  function card(s,status,id){
+    return '<a class="cardlink" href="profile.html?id='+id+'">'+'<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
       +'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
       +'<p class="hrs">🕐 '+status+"</p></div>"
-      +(status!=="-----" ? '<div class="status">ご予約可能</div>' : "");
+      +(status!=="-----" ? '<div class="status">ご予約可能</div>' : "")+"</a>";
   }
   var pg=document.getElementById("pickupGrid");
-  STAFF.slice(0,26).forEach(function(s){
+  STAFF.slice(0,26).forEach(function(s,i){
     var d=document.createElement("div"); d.className="pcard";
-    d.innerHTML='<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"></div><p class="nm">'+s.name+"("+s.age+")</p>";
+    d.innerHTML='<a class="cardlink" href="profile.html?id='+(i+1)+'"><div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"></div><p class="nm">'+s.name+"("+s.age+")</p></a>";
     pg.appendChild(d);
   });
   var th=document.getElementById("therapistCards");
   var today0=new Date().getDay();
-  STAFF.forEach(function(s){
+  STAFF.forEach(function(s,i){
     var working=s.days.indexOf(today0)>=0;
     var d=document.createElement("div"); d.className="scard";
-    d.innerHTML=card(s, working ? (s.shift[0]+":00～"+s.shift[1]+":00") : "-----");
+    d.innerHTML=card(s, working ? (s.shift[0]+":00～"+s.shift[1]+":00") : "-----", i+1);
     th.appendChild(d);
   });
   var wd=["日","月","火","水","木","金","土"];
@@ -309,11 +311,11 @@ body{padding-bottom:54px}
   }
   function renderDay(){
     tc.innerHTML=""; var shown=0;
-    STAFF.forEach(function(s){
+    STAFF.forEach(function(s,idx){
       if(shown>=4) return;
       if(s.days.indexOf(sel.getDay())<0) return;
       var d=document.createElement("div"); d.className="scard";
-      d.innerHTML=card(s, s.shift[0]+":00～"+s.shift[1]+":00");
+      d.innerHTML=card(s, s.shift[0]+":00～"+s.shift[1]+":00", idx+1);
       tc.appendChild(d); shown++;
     });
   }

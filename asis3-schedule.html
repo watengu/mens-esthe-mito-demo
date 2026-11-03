@@ -95,10 +95,11 @@ body{padding-bottom:54px}
 .hero{height:56vh;min-height:330px}
 .cards{grid-template-columns:repeat(2,1fr)}
 }
+.cards a.cardlink,.pgrid a.cardlink{text-decoration:none;color:inherit;display:block}
 </style>
 </head>
 <body><header class="mbar"><div class="mm">ゆ</div><div class="mc"><div class="tel">📱 029-000-0000</div><div class="hrs">OPEN：10:00～22:00　RECEPTION：9:30～21:00</div></div><button class="burger" id="burger" type="button" aria-label="メニュー">☰</button></header>
-<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="asis3-system.html">SYSTEM</a></nav>
+<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="therapist.html">THERAPIST</a><a href="asis3-system.html">SYSTEM</a><a href="topics.html">TOPICS</a><a href="access.html">ACCESS</a><a href="faq.html">FAQ</a></nav>
 
 <div class="demo-bar">デモサイトです。店舗・スタッフ・出勤はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
 
@@ -180,13 +181,13 @@ body{padding-bottom:54px}
   }
   function render(){
     cards.innerHTML="";
-    STAFF.forEach(function(s){
+    STAFF.forEach(function(s,idx){
       if(s.days.indexOf(sel.getDay())<0) return;
       var d=document.createElement("div"); d.className="scard";
-      d.innerHTML='<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
+      d.innerHTML='<a class="cardlink" href="profile.html?id='+(idx+1)+'"><div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
         +'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
         +'<p class="hrs">🕐 '+s.shift[0]+":00～"+s.shift[1]+":00</p></div>"
-        +'<div class="status">ご予約可能</div>';
+        +'<div class="status">ご予約可能</div></a>';
       cards.appendChild(d);
     });
   }
