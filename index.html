@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>水戸/リラクゼーション｜ゆるり水戸（デモ）</title>
+<title>ゆるり水戸｜メンズリラクゼーション（デモ）</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ゆるり水戸">
 <meta property="og:title" content="ゆるり水戸｜水戸駅近のリラクゼーションサロン（デモ）">
@@ -12,318 +12,170 @@
 <meta property="og:image" content="https://watengu.github.io/mens-esthe-mito-demo/img/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://watengu.github.io/mens-esthe-mito-demo/img/ogp.jpg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#b08d57;--gold-d:#8a6a3c;--taupe:#b0a080;--ink:#2b2b2b;--sub:#6f6f6f;--line:#d9d9d9;--bg:#efefef;--pink:#e0218a;--grayband:#8c8c8c;--xblue:#1d9bf0}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:"Zen Kaku Gothic New",sans-serif;color:var(--ink);background:var(--bg);line-height:1.8;font-size:15px}
-img{display:block;max-width:100%}
-.serif{font-family:"Cormorant Garamond","Shippori Mincho",serif}
-.demo-bar{background:#1c1a17;color:#e9e2d2;text-align:center;font-size:12px;padding:7px 12px;position:relative;z-index:60}
-/* sidebar (desktop) / top bar (mobile) */
-.sidebar{position:fixed;top:0;left:0;width:264px;height:100vh;z-index:50;background:linear-gradient(180deg,#4a3520 0%,#6d5836 30%,#a8895a 70%,#c9ab72 100%);color:#fff;padding:30px 24px;display:flex;flex-direction:column;align-items:flex-start}
-.monogram{width:74px;height:74px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Shippori Mincho",serif;font-size:30px;margin:0 auto}
-.script{font-family:"Cormorant Garamond",serif;font-style:italic;text-align:center;width:100%;font-size:15px;margin-top:12px;color:#f3e9d2}
-.shopname{font-family:"Shippori Mincho",serif;text-align:center;width:100%;font-size:19px;letter-spacing:.14em;margin-top:4px}
-.shopname b{color:#ffe9b0;font-weight:700}
-nav.gnav{margin-top:34px;width:100%}
-nav.gnav a{display:block;color:#fff;text-decoration:none;padding:9px 2px;font-family:"Cormorant Garamond","Shippori Mincho",serif;letter-spacing:.18em;font-size:15px}
-nav.gnav a small{font-family:"Zen Kaku Gothic New",sans-serif;font-size:10.5px;letter-spacing:.1em;color:#efe3c8;margin-left:8px}
-.side-foot{margin-top:auto;width:100%}
-.side-btn{display:block;text-align:center;border:1.5px solid #fff;color:#fff;text-decoration:none;padding:10px 6px;font-size:13.5px;font-weight:700;margin-bottom:10px;background:rgba(255,255,255,.06)}
-.side-tel{font-size:19px;font-weight:700;text-align:center;letter-spacing:.04em}
-.side-hours{font-size:11px;text-align:center;color:#f0e7cf;margin-top:6px;line-height:1.7}
-.main{margin-left:264px}
-.mobile-head{display:none}
-.hero{position:relative;background:#000}
-.hero img{width:100%;height:min(72vh,560px);object-fit:cover;opacity:.92}
-.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
-.hero-c.monogram{width:88px;height:88px;font-size:36px;background:rgba(0,0,0,.25)}
-.hero-c.shopname{font-size:clamp(24px,5vw,36px);margin-top:14px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
-.hero-c.script{font-size:17px}
-.news-bar{background:#111;color:#fff;text-align:center;padding:12px 16px;font-size:13.5px}
-section{padding:64px 0}
-.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
-.sec-head{text-align:center;margin-bottom:34px}
-.sec-head.en{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,5.4vw,40px);letter-spacing:.28em;color:var(--gold);font-weight:600}
-.sec-head.ja{font-size:12.5px;color:var(--sub);margin-top:2px}
-.sec-head.rule{width:56px;height:1px;background:var(--gold);margin:14px auto 0}
-.topics{max-width:760px;margin:0 auto}
-.topics li{list-style:none;display:flex;gap:18px;padding:13px 4px;border-bottom:1px dotted #bbb;font-size:14px;flex-wrap:wrap}
-.topics.d{color:var(--sub);font-size:12.5px;white-space:nowrap;padding-top:2px}
-.gold-btn{display:block;width:fit-content;margin:30px auto 0;background:linear-gradient(180deg,#c8a566,#a8895a);color:#fff;text-decoration:none;font-family:"Shippori Mincho",serif;letter-spacing:.12em;font-size:15px;padding:13px 42px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75),inset 0 0 0 4px rgba(168,137,90,.9);text-align:center}
-.pickup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-.pcard{background:#fff}
-.pcard.ph{position:relative}.pcard img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.pcard.nm{text-align:center;padding:9px 6px;font-size:14px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-.scard{background:#fff;display:flex;flex-direction:column}
-.scard.ph{position:relative}
-.scard img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
-.bdg{background:var(--pink);color:#fff;font-size:11px;font-weight:700;border-radius:5px;padding:2px 9px}
-.xico{position:absolute;right:8px;bottom:8px;width:30px;height:30px;border-radius:50%;background:var(--xblue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none}
-.scard.info{padding:12px 10px 0;text-align:center}
-.scard.nm{font-size:15.5px}
-.scard.hrs{border-top:1px dotted #bbb;margin-top:9px;padding:9px 0 12px;font-size:13.5px;color:#444}
-.scard.status{background:var(--grayband);color:#fff;text-align:center;font-size:13.5px;padding:8px 4px;margin-top:auto}
-.blog article{background:#fff;padding:24px;margin-bottom:14px}
-.blog.d{font-size:12.5px;color:var(--sub)}
-.blog h3{font-size:16.5px;margin:4px 0 8px}
-.blog p{font-size:14px;color:#555}
-.credit{background:#fff;padding:26px;text-align:center}
-.credit p{color:#555;font-size:14px}
-.brands{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-.brands span{border:1px solid var(--line);border-radius:6px;padding:5px 14px;font-weight:700;font-size:13px;background:#fff}
-.concept{max-width:820px;margin:0 auto;text-align:center;color:#555}
-.room{background:#fff;padding:28px;max-width:820px;margin:0 auto}
-.room h3{font-family:"Shippori Mincho",serif;font-size:19px;text-align:center}
-.room p{color:#555;font-size:14px;margin-top:10px;text-align:center}
-.foot-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
-.foot-btns.gold-btn{margin:0}
-footer.site{background:#4c463c;color:#e8e4da;text-align:center;padding:44px 22px 54px;margin-left:264px}
-footer.site.tel{font-size:20px;font-weight:700;color:#fff}
-footer.site p{font-size:12.5px;margin-top:8px}
-@media(max-width:899px){
-.sidebar{display:none}
-.main,footer.site{margin-left:0}
-.mobile-head{display:flex;align-items:center;justify-content:space-between;gap:10px;background:linear-gradient(90deg,#4a3520,#a8895a);color:#fff;padding:10px 16px;position:sticky;top:0;z-index:50}
-.mobile-head.mn{font-family:"Shippori Mincho",serif;font-size:18px;letter-spacing:.1em}
-.mobile-head a{color:#fff;text-decoration:none;border:1.5px solid #fff;padding:6px 12px;font-size:12.5px;font-weight:700}
-.cards{grid-template-columns:repeat(2,1fr)}
-.pickup-grid{grid-template-columns:repeat(3,1fr)}
-}
-
-#splash{position:fixed;inset:0;z-index:200;background:linear-gradient(135deg,#a37e3f 0%,#d9b878 30%,#f4e3b2 50%,#dcbc7f 68%,#b18d4e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:splashfade .6s ease 1.15s forwards}
-#splash .mono{width:104px;height:104px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:44px;color:#fff;text-shadow:0 1px 6px rgba(120,90,30,.45)}
-#splash .sc{font-family:"Snell Roundhand","Hiragino Mincho ProN",cursive;color:#fff;font-size:15px;letter-spacing:.14em}
-#splash .lg{font-family:Georgia,"Hiragino Mincho ProN",serif;color:#fff;font-size:26px;letter-spacing:.3em;text-shadow:0 1px 6px rgba(120,90,30,.45);padding-left:.3em}
-@keyframes splashfade{to{opacity:0;visibility:hidden}}
-.mbar{display:none}.bbar{display:none}.mnav{display:none}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.dsel{background:linear-gradient(180deg,#c8ab72,#b08d57);color:#fff;text-align:center;padding:13px;font-size:16px;letter-spacing:.14em;margin:6px 0 10px}
-.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.dgrid button{background:#fff;border:1px solid #cfc4a6;color:#5d4c2a;padding:11px 0;font-size:14px;cursor:pointer;font-family:inherit}
-@media(max-width:1023px){
-.mbar{display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,#c8ab72,#a8894f);color:#fff;padding:8px 12px;position:sticky;top:0;z-index:60}
-.mbar .mm{width:40px;height:40px;border:1.2px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:serif;font-size:19px;flex:none}
-.mbar .mc{flex:1;text-align:center;line-height:1.55}
-.mbar .mc .tel{font-size:16px;letter-spacing:.05em}
-.mbar .mc .hrs{font-size:10.5px;opacity:.95}
-.mbar .burger{background:none;border:0;color:#fff;font-size:23px;padding:6px;flex:none;cursor:pointer}
-.mnav{display:none;background:#f7f2e7;border-bottom:1px solid #ddd2ba;position:sticky;top:57px;z-index:59}
-.mnav.open{display:block}
-.mnav a{display:block;padding:12px 18px;color:#6d5a33;text-decoration:none;border-top:1px solid #e7dcc2;font-size:14px;letter-spacing:.12em}
-.bbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;gap:2px;background:rgba(60,48,28,.3);padding:2px}
-.bbar a{flex:1;background:linear-gradient(180deg,#d3b57c,#b08d57);color:#fff;text-align:center;padding:11px 0;font-size:13.5px;text-decoration:none;letter-spacing:.06em}
-body{padding-bottom:54px}
-.hero{height:56vh;min-height:330px}
-.cards{grid-template-columns:repeat(2,1fr)}
-}
-.cards a.cardlink,.pgrid a.cardlink{text-decoration:none;color:inherit;display:block}
+:root{--blue1:#3775b0;--blue2:#015cb2;--pink:#c4a3bf;--gold:#c2894b;--ink:#2b3a46;--mut:#7b8a94;--line:#dbe7f2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:#fff;padding-bottom:64px}
+header.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:2px solid var(--blue2);display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
+.logo{font-family:"Hiragino Mincho ProN",serif;font-size:19px;color:var(--blue2);letter-spacing:.14em}
+.logo small{display:block;font-size:9px;letter-spacing:.3em;color:var(--pink);font-family:inherit}
+.hinfo{font-size:11px;color:var(--mut);text-align:right;line-height:1.5}
+.hinfo b{color:var(--blue2);font-size:13px}
+.note{background:#f4f8fc;color:var(--mut);font-size:11px;text-align:center;padding:6px 10px}
+.hero{background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff;text-align:center;padding:30px 16px 26px}
+.hero .en{font-family:"Hiragino Mincho ProN",serif;letter-spacing:.34em;font-size:12px;opacity:.85}
+.hero h1{font-family:"Hiragino Mincho ProN",serif;font-size:24px;letter-spacing:.18em;margin:8px 0 6px;font-weight:500}
+.hero p{font-size:12px;opacity:.9}
+section{padding:22px 12px 6px;max-width:1080px;margin:0 auto}
+.h2{text-align:center;margin-bottom:14px}
+.h2 .en{font-family:"Hiragino Mincho ProN",serif;font-size:19px;letter-spacing:.26em;color:var(--blue2)}
+.h2 .jp{font-size:11px;color:var(--pink);letter-spacing:.3em;margin-top:2px}
+.h2::after{content:"";display:block;width:44px;height:2px;background:var(--gold);margin:8px auto 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(6,1fr)}}
+.card{background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;display:block}
+.card .ph{aspect-ratio:3/4;overflow:hidden;position:relative;background:#eaf2f9}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .ph img.cp1{object-position:50% 18%}.card .ph img.cp2{object-position:50% 38%;transform:scale(1.12)}.card .ph img.cp3{object-position:50% 8%;transform:scale(1.22)}
+.card .bd{padding:6px 4px 7px;text-align:center}
+.card .nm{font-size:12.5px;font-weight:600}
+.card .age{font-size:10.5px;color:var(--mut)}
+.card .tm{font-size:10.5px;color:var(--blue2);margin-top:1px}
+.st{display:block;margin-top:4px;font-size:10.5px;font-weight:700;padding:3px 0;border-radius:2px}
+.st.next{background:linear-gradient(135deg,var(--blue1),var(--blue2));color:#fff}
+.st.full{background:#eef1f4;color:#98a4ad}
+.more{display:block;margin:14px auto 4px;width:fit-content;padding:10px 34px;border:1px solid var(--blue2);color:var(--blue2);text-decoration:none;font-size:12.5px;letter-spacing:.14em}
+.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(min-width:760px){.pk{grid-template-columns:repeat(8,1fr)}}
+.news{max-width:760px;margin:0 auto}
+.news a{display:flex;gap:10px;padding:10px 6px;border-bottom:1px dotted var(--line);text-decoration:none;color:inherit;font-size:13px;align-items:center}
+.news .d{color:var(--mut);font-size:11.5px;white-space:nowrap}
+.tag{font-size:10px;color:#fff;background:var(--pink);padding:2px 7px;border-radius:8px;white-space:nowrap}
+table.info{width:100%;max-width:760px;margin:0 auto;border-collapse:collapse;font-size:13px}
+table.info th,table.info td{border:1px solid var(--line);padding:9px 10px;text-align:left}
+table.info th{background:#eef5fb;color:var(--blue2);width:32%;font-weight:600}
+.menu-list{max-width:760px;margin:0 auto;font-size:13.5px}
+.menu-list div{display:flex;justify-content:space-between;padding:8px 6px;border-bottom:1px dotted var(--line)}
+.menu-list b{color:var(--gold)}
+footer{background:#20303d;color:#cfdae2;text-align:center;font-size:11px;padding:22px 12px 30px;margin-top:26px;line-height:1.9}
+.bbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;box-shadow:0 -2px 10px rgba(1,60,110,.18)}
+.bbar a{flex:1;text-align:center;padding:13px 0;font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--blue1),var(--blue2))}
+.bbar a+a{border-left:1px solid rgba(255,255,255,.35)}
+.bbar a.line{background:linear-gradient(135deg,#4c9a5f,#2e7d46)}
 </style>
 </head>
-<body><div id="splash"><div class="mono">ゆ</div><div class="sc">Relaxation Salon</div><div class="lg">YURURI MITO</div></div>
-<header class="mbar"><div class="mm">ゆ</div><div class="mc"><div class="tel">📱 029-000-0000</div><div class="hrs">OPEN：10:00～22:00　RECEPTION：9:30～21:00</div></div><button class="burger" id="burger" type="button" aria-label="メニュー">☰</button></header>
-<nav class="mnav" id="mnav"><a href="asis3-top.html">HOME</a><a href="asis3-schedule.html">SCHEDULE</a><a href="therapist.html">THERAPIST</a><a href="asis3-system.html">SYSTEM</a><a href="topics.html">TOPICS</a><a href="access.html">ACCESS</a><a href="faq.html">FAQ</a></nav>
+<body>
+<header class="top">
+  <div class="logo">ゆるり水戸<small>YURURI MITO</small></div>
+  <div class="hinfo">OPEN 10:00–22:00<br><b>029-000-0000</b></div>
+</header>
+<div class="note">店舗・スタッフはすべて架空のデモ情報です。</div>
+<div class="hero">
+  <div class="en">RELAXATION SALON</div>
+  <h1>ゆるり水戸</h1>
+  <p>水戸駅南口 徒歩3分／全室個室／提携駐車場4台</p>
+</div>
 
-<div class="demo-bar">デモサイトです。店舗・スタッフ・出勤・料金はすべて架空の設定です。実在の店舗・人物とは関係ありません。</div>
+<section>
+  <div class="h2"><div class="en">TODAY'S SCHEDULE</div><div class="jp">本日の出勤</div></div>
+  <div class="grid" id="today"></div>
+  <a class="more" href="therapist.html">セラピスト一覧はこちら</a>
+</section>
 
-<aside class="sidebar">
-<div class="monogram">ゆ</div>
-<p class="script">Luxury Men's Salon</p>
-<p class="shopname">ゆるり <b>水戸</b></p>
-<nav class="gnav">
-<a href="#top">HOME<small>-ホーム-</small></a>
-<a href="topics.html">TOPICS<small>-お知らせ-</small></a>
-<a href="asis3-schedule.html">SCHEDULE<small>-出勤情報-</small></a>
-<a href="therapist.html">THERAPIST<small>-セラピスト-</small></a>
-<a href="asis3-system.html">SYSTEM<small>-料金システム-</small></a>
-<a href="access.html">ACCESS<small>-アクセス-</small></a>
-<a href="faq.html">FAQ<small>-よくある質問-</small></a>
+<section>
+  <div class="h2"><div class="en">PICK UP</div><div class="jp">ピックアップ</div></div>
+  <div class="pk" id="pickup"></div>
+</section>
+
+<section>
+  <div class="h2"><div class="en">NEW FACE</div><div class="jp">新人情報</div></div>
+  <div class="pk" id="newface"></div>
+</section>
+
+<section>
+  <div class="h2"><div class="en">NEWS</div><div class="jp">お知らせ</div></div>
+  <div class="news" id="news"></div>
+</section>
+
+<section>
+  <div class="h2"><div class="en">SHOP</div><div class="jp">店舗情報</div></div>
+  <table class="info">
+    <tr><th>店名</th><td>ゆるり水戸</td></tr>
+    <tr><th>住所</th><td>茨城県水戸市城南（水戸駅南口 徒歩3分）※架空の住所です</td></tr>
+    <tr><th>営業時間</th><td>10:00–22:00（最終受付 21:00）</td></tr>
+    <tr><th>電話</th><td>029-000-0000（受付 9:30–21:00）</td></tr>
+    <tr><th>設備</th><td>全室個室 4室／提携駐車場 4台</td></tr>
+  </table>
+</section>
+
+<section>
+  <div class="h2"><div class="en">MENU</div><div class="jp">人気メニュー</div></div>
+  <div class="menu-list">
+    <div><span>人気No.1セット（アロマ90分＋ヘッド20分）110分</span><b>¥9,800</b></div>
+    <div><span>もみほぐし 60分</span><b>¥4,400</b></div>
+    <div><span>アロマトリートメント 90分</span><b>¥8,300</b></div>
+    <div><span>全身セット（もみほぐし＋アロマ）120分</span><b>¥11,600</b></div>
+  </div>
+  <a class="more" href="asis3-system.html">料金システムはこちら</a>
+</section>
+
+<footer>ゆるり水戸（デモ）<br>店舗・スタッフ・料金はすべて架空のデモ情報です。</footer>
+
+<nav class="bbar">
+  <a href="tel:0290000000">電話する</a>
+  <a class="line" href="#">LINE予約</a>
+  <a href="asis3-schedule.html">Web予約</a>
 </nav>
-<div class="side-foot">
-<a class="side-btn" href="asis3-schedule.html">WEBで予約</a>
-<a class="side-btn" href="#access">LINEで予約</a>
-<p class="side-tel">029-000-0000</p>
-<p class="side-hours">OPEN：10:00～22:00<br>RECEPTION：9:30～21:00</p>
-</div>
-</aside>
-
-<div class="mobile-head">
-<span class="mn">ゆるり水戸</span>
-<a href="tel:0290000000">029-000-0000</a>
-<a href="asis3-schedule.html">出勤情報</a>
-</div>
-
-<div class="main">
-<div class="hero" id="top">
-<video autoplay muted loop playsinline poster="img/hero-woman.webp"><source src="img/hero.mp4" type="video/mp4"></video>
-<div class="hero-c">
-<div class="monogram">ゆ</div>
-<p class="script">Luxury Men's Salon</p>
-<p class="shopname">ゆるり <b style="color:#ffe9b0">水戸</b></p>
-</div>
-</div>
-<div class="news-bar">NEWS　11月もよろしくお願いします。出勤情報を公開しました。ご新規様は初回500円OFFです。（デモ）</div>
-
-<section id="topics">
-<div class="wrap">
-<div class="sec-head"><p class="en">TOPICS</p><p class="ja">お知らせ</p><div class="rule"></div></div>
-<ul class="topics">
-<li><span class="d">求人情報 2026/11/02</span><span>スタッフさん大募集！〜当店の看板スタッフになりませんか〜（デモ）</span></li>
-<li><span class="d">お知らせ 2026/11/02</span><span>♡簡単WEB予約のご案内♡（デモ）</span></li>
-</ul>
-<a class="gold-btn" href="topics.html">TOPICS一覧はこちら</a>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">PICK UP</p><p class="ja">ピックアップ</p><div class="rule"></div></div>
-<div class="pickup-grid" id="pickupGrid"></div>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">X</p><p class="ja">旧TWITTER</p><div class="rule"></div></div>
-<p style="text-align:center"><a href="#top" style="color:var(--gold);font-weight:700">X（旧TWITTER）はこちら（デモ）</a></p>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">SCHEDULE</p><p class="ja">スケジュール</p><div class="rule"></div></div>
-<div class="dsel" id="dsel"></div><div class="dgrid" id="dateGrid"></div><div class="weekrow"><button class="week-btn" id="weekBtn" type="button">次の週</button></div><div class="cards" id="todayCards" style="margin-top:14px"></div>
-<a class="gold-btn" href="asis3-schedule.html">出勤情報一覧はこちら</a>
-</div>
-</section>
-
-<section id="therapist" style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">THERAPIST</p><p class="ja">セラピスト</p><div class="rule"></div></div>
-<div class="cards" id="therapistCards"></div>
-<a class="gold-btn" href="therapist.html">セラピスト一覧はこちら</a>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">BLOG</p><p class="ja">ブログ</p><div class="rule"></div></div>
-<div class="blog">
-<article><p class="d">2026.11.02 10:00</p><h3>新人スタッフ入店</h3><p>もみほぐしを得意とする小松 彩花が入店しました。肩こりや腰の重さが気になる方に、落ち着いた施術でお応えします。はじめの10分で圧の強さを確認しながら進めますので、初めての方も安心してお越しください。（デモ）</p></article>
-<article><p class="d">2026.11.01 10:00</p><h3>新人スタッフ入店</h3><p>ヘッドスパを得意とする沢田 菜々子が入店しました。眼精疲労や眠りの浅さが気になる方にどうぞ。よろしくお願いいたします。（デモ）</p></article>
-</div>
-<a class="gold-btn" href="#top">ブログを見る</a>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">CREDIT</p><p class="ja">クレジット</p><div class="rule"></div></div>
-<div class="credit">
-<p>クレジットカードをご利用の際は必ずご予約時にお伝え下さい。</p>
-<p style="margin-top:6px">VISA、MASTER、JCB、AMEX、DINERSがご利用になれます。</p>
-<div class="brands"><span style="color:#1a1f71">VISA</span><span style="color:#3f5ba9">JCB</span><span>Mastercard</span><span style="color:#2e77bc">AMEX</span><span style="color:#00427a">Diners Club</span></div>
-</div>
-</div>
-</section>
-
-<section style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">CONCEPT</p><p class="ja">コンセプト</p><div class="rule"></div></div>
-<div class="concept">
-<p>丁寧な接客と確かな技術を持ち合わせたスタッフのみ在籍しています。完全個室の静かな空間で、非日常の癒やしをお届けいたします。（デモ文面）</p>
-<img src="img/reception.jpg" alt="受付と待合スペース" style="margin:26px auto 0;width:100%;max-width:720px">
-</div>
-</div>
-</section>
-
-<section id="access" style="padding-top:0">
-<div class="wrap">
-<div class="sec-head"><p class="en">ACCESS</p><p class="ja">アクセス</p><div class="rule"></div></div>
-<div class="room">
-<h3>水戸ルーム</h3>
-<p>茨城県水戸市城南２丁目（架空の住所表記です）</p>
-<p>JR常磐線 水戸駅 徒歩３分 ※南口</p>
-<p>提携駐車場が4台ございます。お車の方はご予約のときにお伝えください。</p>
-<p style="margin-top:12px">TEL： 029-000-0000（架空）<br>Open 10:00 ～ 22:00</p>
-</div>
-<div class="foot-btns" style="margin-top:34px">
-<a class="gold-btn" href="asis3-schedule.html">Reserve ご予約</a>
-<a class="gold-btn" href="asis3-system.html">Q&amp;A よくあるご質問</a>
-<a class="gold-btn" href="#topics">Recruit 求人情報</a>
-</div>
-</div>
-</section>
-</div>
-
-<footer class="site">
-<p class="tel">029-000-0000（架空）</p>
-<p>OPEN：10:00～22:00　／　RECEPTION：9:30～21:00</p>
-<p style="max-width:760px;margin:14px auto 0">このページは業態スキン（エステ版）のデモとして制作された架空店舗のLPです。構成・並び・見せ方・色と書体の印象はゴールサイト（THE PREMIUM SPA）の実ページに沿って作り、店名・スタッフ名・料金・電話番号などのテキストを差し替えています。スタッフ写真には、以前に生成した女性の写真（完成カット）を画角を変えて使用しています（テスト版）。実在の店舗・人物とは関係ありません。</p>
-</footer>
 
 <script src="roster.js"></script>
 <script>
 (function(){
-  function badges(s){ return '<div class="badges">'+s.badge.map(function(b){return '<span class="bdg">'+b+"</span>";}).join("")+"</div>"; }
-  function card(s,status,id){
-    return '<a class="cardlink" href="profile.html?id='+id+'">'+'<div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"><a class="xico" href="#top" aria-label="X">𝕏</a></div>'
-      +'<div class="info"><p class="nm">'+s.name+" ("+s.age+")</p>"
-      +'<p class="hrs">🕐 '+status+"</p></div>"
-      +(status!=="-----" ? '<div class="status">ご予約可能</div>' : "")+"</a>";
-  }
-  var pg=document.getElementById("pickupGrid");
-  STAFF.slice(0,26).forEach(function(s,i){
-    var d=document.createElement("div"); d.className="pcard";
-    d.innerHTML='<a class="cardlink" href="profile.html?id='+(i+1)+'"><div class="ph">'+badges(s)+'<img class="cp'+s.cp+'" src="'+s.img+'" alt="" loading="lazy"></div><p class="nm">'+s.name+"("+s.age+")</p></a>";
-    pg.appendChild(d);
+  var today0 = new Date().getDay();
+  function fmt(h, m){ return (h < 10 ? "0" + h : "" + h) + ":" + (m < 30 ? "00" : "30"); }
+  // 本日の出勤（最小カード＋次回時刻／満了）
+  var t = document.getElementById('today'), shown = 0;
+  STAFF.forEach(function(s, i){
+    if(s.days.indexOf(today0) < 0 || shown >= 24) return;
+    shown++;
+    var full = (i % 6 === 5);
+    var startMin = s.shift[0] * 60, lenMin = (s.shift[1] - s.shift[0]) * 60;
+    var off = 45 + ((i * 37) % Math.max(60, lenMin - 60));
+    var nx = startMin + off, nh = Math.floor(nx / 60) % 24, nm = (nx % 60 < 30) ? 0 : 30;
+    var st = full ? '<span class="st full">本日満了</span>' : '<span class="st next">次回 ' + fmt(nh, nm) + '〜</span>';
+    var a = document.createElement('a');
+    a.className = 'card'; a.href = 'profile.html?id=' + (i + 1);
+    a.innerHTML = '<div class="ph"><img class="cp' + s.cp + '" src="' + s.img + '" alt="" loading="lazy"></div>' +
+      '<div class="bd"><div class="nm">' + s.name + '</div><div class="age">' + s.age + '歳</div>' +
+      '<div class="tm">' + s.shift[0] + ':00～' + s.shift[1] + ':00</div>' + st + '</div>';
+    t.appendChild(a);
   });
-  var th=document.getElementById("therapistCards");
-  var today0=new Date().getDay();
-  STAFF.forEach(function(s,i){
-    var working=s.days.indexOf(today0)>=0;
-    var d=document.createElement("div"); d.className="scard";
-    d.innerHTML=card(s, working ? (s.shift[0]+":00～"+s.shift[1]+":00") : "-----", i+1);
-    th.appendChild(d);
+  // PICK UP（先頭8名・写真＋名前のみ）
+  var pk = document.getElementById('pickup');
+  STAFF.slice(0, 8).forEach(function(s, i){
+    var a = document.createElement('a');
+    a.className = 'card'; a.href = 'profile.html?id=' + (i + 1);
+    a.innerHTML = '<div class="ph"><img class="cp' + s.cp + '" src="' + s.img + '" alt="" loading="lazy"></div><div class="bd"><div class="nm">' + s.name + '（' + s.age + '）</div></div>';
+    pk.appendChild(a);
   });
-  var wd=["日","月","火","水","木","金","土"];
-  var dates=[]; var now=new Date();
-  for(var i=0;i<14;i++){ dates.push(new Date(now.getFullYear(),now.getMonth(),now.getDate()+i)); }
-  var week=0; var sel=dates[0];
-  var dsel=document.getElementById("dsel"), grid=document.getElementById("dateGrid"), tc=document.getElementById("todayCards"), wb=document.getElementById("weekBtn");
-  function fmt(d){ return (d.getMonth()+1)+"月"+("0"+d.getDate()).slice(-2)+"日("+wd[d.getDay()]+")"; }
-  function renderDates(){
-    dsel.textContent=fmt(sel);
-    grid.innerHTML="";
-    dates.forEach(function(d,idx){
-      if(idx>=week*7 && idx<week*7+7 && d.getTime()!==sel.getTime()){
-        var b=document.createElement("button"); b.type="button"; b.textContent=fmt(d);
-        b.addEventListener("click",function(){ sel=d; renderDates(); renderDay(); });
-        grid.appendChild(b);
-      }
-    });
-    wb.textContent = week===0 ? "次の週" : "前の週";
-  }
-  function renderDay(){
-    tc.innerHTML=""; var shown=0;
-    STAFF.forEach(function(s,idx){
-      if(shown>=4) return;
-      if(s.days.indexOf(sel.getDay())<0) return;
-      var d=document.createElement("div"); d.className="scard";
-      d.innerHTML=card(s, s.shift[0]+":00～"+s.shift[1]+":00", idx+1);
-      tc.appendChild(d); shown++;
-    });
-  }
-  wb.addEventListener("click",function(){ week=week===0?1:0; sel=dates[week*7]; renderDates(); renderDay(); });
-  renderDates(); renderDay();
+  // NEW FACE（新人バッジの先頭8名）
+  var nf = document.getElementById('newface'), cnt = 0;
+  STAFF.forEach(function(s, i){
+    if(cnt >= 8 || s.badge.indexOf('新人') < 0) return;
+    cnt++;
+    var a = document.createElement('a');
+    a.className = 'card'; a.href = 'profile.html?id=' + (i + 1);
+    a.innerHTML = '<div class="ph"><img class="cp' + s.cp + '" src="' + s.img + '" alt="" loading="lazy"></div><div class="bd"><div class="nm">' + s.name + '（' + s.age + '）</div></div>';
+    nf.appendChild(a);
+  });
+  // NEWS
+  var news = [['2026/11/03','お知らせ','新しいページを追加しました'],['2026/11/01','キャンペーン','初回の方は全コース500円引き'],['2026/10/30','求人情報','セラピスト募集中']];
+  var nw = document.getElementById('news');
+  news.forEach(function(n){
+    var a = document.createElement('a'); a.href = 'topics.html';
+    a.innerHTML = '<span class="d">' + n[0] + '</span><span class="tag">' + n[1] + '</span><span>' + n[2] + '</span>';
+    nw.appendChild(a);
+  });
 })();
 </script>
-<div class="bbar"><a href="tel:0290000000">📞 電話予約</a><a href="asis3-schedule.html">✉ WEB予約</a><a href="#top">LINE予約</a></div>
-<script>document.getElementById("burger").addEventListener("click",function(){document.getElementById("mnav").classList.toggle("open");});</script>
 </body>
 </html>
