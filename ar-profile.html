@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セラピスト詳細｜ゆるり水戸（デモ）</title>
+<style>
+:root{--blue1:#3775b0;--blue2:#015cb2;--pink:#c4a3bf;--gold:#c2894b;--ink:#2b3a46;--mut:#7b8a94;--line:#dbe7f2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:var(--ink);background:#fff;padding-bottom:64px}
+header.top{position:sticky;top:0;z-index:30;background:#fff;border-bottom:2px solid var(--blue2);display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
+.logo{font-family:"Hiragino Mincho ProN",serif;font-size:18px;color:var(--blue2);letter-spacing:.14em;text-decoration:none}
+.hinfo{font-size:11px;color:var(--mut);text-align:right;line-height:1.5}
+.hinfo b{color:var(--blue2);font-size:13px}
+.note{background:#f4f8fc;color:var(--mut);font-size:11px;text-align:center;padding:6px 10px}
+main{max-width:640px;margin:0 auto;padding:0 12px}
+.slider{position:relative;margin-top:14px;background:#eaf2f9}
+.slider .frame{aspect-ratio:3/4;overflow:hidden}
+.slider img{width:100%;height:100%;object-fit:cover;display:none}
+.slider img.on{display:block}
+.slider img.cp1{object-position:50% 18%}.slider img.cp2{object-position:50% 38%}.slider img.cp3{object-position:50% 8%}
+.nav-b{position:absolute;top:50%;transform:translateY(-50%);background:rgba(1,92,178,.75);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer}
+.nav-b.prev{left:8px}.nav-b.next{right:8px}
+.dots{position:absolute;left:0;right:0;bottom:8px;text-align:center}
+.dots span{display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);margin:0 3px}
+.dots span.on{background:#fff}
+.count{position:absolute;right:10px;top:8px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;padding:2px 8px;border-radius:9px}
+h1.pname{font-size:21px;text-align:center;margin:14px 0 2px;font-weight:600}
+.sub{text-align:center;color:var(--mut);font-size:12px}
+.badges{text-align:center;margin-top:6px}
+.badges span{display:inline-block;background:var(--pink);color:#fff;font-size:10.5px;padding:2px 9px;border-radius:9px;margin:0 2px}
+h2.sec{font-family:"Hiragino Mincho ProN",serif;font-size:16px;letter-spacing:.22em;color:var(--blue2);text-align:center;margin:26px 0 10px}
+h2.sec small{display:block;font-size:10px;color:var(--pink);letter-spacing:.3em;font-family:"Hiragino Kaku Gothic ProN",sans-serif;margin-top:2px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.week div{border:1px solid var(--line);text-align:center;padding:7px 1px;font-size:11px;line-height:1.5}
+.week .dow{background:#eef5fb;color:var(--blue2);font-weight:600}
+.week .off{color:#b3bec6}
+.comment{background:#f7fafc;border:1px solid var(--line);padding:14px;font-size:13.5px;line-height:1.9}
+table.info{width:100%;border-collapse:collapse;font-size:13px}
+table.info th,table.info td{border:1px solid var(--line);padding:9px 10px;text-align:left}
+table.info th{background:#eef5fb;color:var(--blue2);width:32%;font-weight:600}
+.backs{display:flex;gap:8px;margin:22px 0 6px}
+.backs a{flex:1;text-align:center;padding:11px 0;border:1px solid var(--blue2);color:var(--blue2);text-decoration:none;font-size:12.5px;letter-spacing:.1em}
+footer{color:var(--mut);text-align:center;font-size:11px;padding:18px 12px 26px;line-height:1.9}
+.bbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;box-shadow:0 -2px 10px rgba(1,60,110,.18)}
+.bbar a{flex:1;text-align:center;padding:13px 0;font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--blue1),var(--blue2))}
+.bbar a+a{border-left:1px solid rgba(255,255,255,.35)}
+.bbar a.line{background:linear-gradient(135deg,#4c9a5f,#2e7d46)}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="ar-top.html">ゆるり水戸</a>
+  <div class="hinfo">OPEN 10:00–22:00<br><b>029-000-0000</b></div>
+</header>
+<div class="note">新版プレビュー（個人ページ型）です。店舗・スタッフはすべて架空のデモ情報です。</div>
+<main id="main"><p style="padding:30px 0;text-align:center">読み込んでいます…</p></main>
+<footer>ゆるり水戸（デモ）<br>店舗・スタッフはすべて架空のデモ情報です。</footer>
+<nav class="bbar">
+  <a href="tel:0290000000">電話する</a>
+  <a class="line" href="#">LINE予約</a>
+  <a href="asis3-schedule.html">Web予約</a>
+</nav>
+
+<script src="roster.js"></script>
+<script src="profile-photos.js"></script>
+<script>
+(function(){
+  var MENUS = ["もみほぐし","アロマトリートメント","タイ古式","ヘッドスパ","足つぼ"];
+  var COMMENTS = [
+    "強すぎない圧で、初めての方にも安心の施術を心がけています。",
+    "肩と首まわりのケアが得意です。お仕事帰りのリフレッシュにどうぞ。",
+    "ゆったりしたペースで、全身の疲れをほぐします。",
+    "アロマの香り選びから一緒に。静かな個室でお待ちしています。"
+  ];
+  var DOW = ["日","月","火","水","木","金","土"];
+  var id = parseInt((location.search.match(/id=(\d+)/) || [])[1], 10);
+  var main = document.getElementById('main');
+  if(!id || id < 1 || id > STAFF.length){
+    main.innerHTML = '<p style="padding:30px 0;text-align:center">セラピストが見つかりませんでした。<br><a href="ar-top.html">トップへ戻る</a></p>';
+    return;
+  }
+  var s = STAFF[id - 1];
+  document.title = s.name + "｜ゆるり水戸（デモ）";
+  var photos = (typeof STAFF_PHOTOS !== "undefined" && STAFF_PHOTOS[id]) ? STAFF_PHOTOS[id] : [s.img];
+  var slides = photos.map(function(p, k){
+    return '<img class="' + (k === 0 ? "on " : "") + 'cp' + s.cp + '" src="' + p + '" alt="">';
+  }).join("");
+  var nav = photos.length > 1 ? '<button class="nav-b prev" id="pv" aria-label="前へ">‹</button><button class="nav-b next" id="nx" aria-label="次へ">›</button><div class="dots" id="dots">' + photos.map(function(_, k){ return '<span class="' + (k === 0 ? "on" : "") + '"></span>'; }).join("") + '</div><div class="count" id="cnt">1 / ' + photos.length + '</div>' : "";
+  var badges = s.badges.map(function(b){ return "<span>" + b + "</span>"; }).join("");
+  var now = new Date(); now.setHours(0, 0, 0, 0);
+  var week = "";
+  for(var k = 0; k < 7; k++){
+    var d = new Date(now.getTime() + k * 86400000);
+    var on = s.days.indexOf(d.getDay()) >= 0;
+    week += '<div><div class="dow">' + (d.getMonth() + 1) + "/" + d.getDate() + "（" + DOW[d.getDay()] + '）</div>' + (on ? s.shift[0] + ":00～" + s.shift[1] + ":00" : '<span class="off">お休み</span>') + "</div>";
+  }
+  main.innerHTML =
+    '<div class="slider"><div class="frame">' + slides + '</div>' + nav + '</div>' +
+    '<h1 class="pname">' + s.name + '（' + s.age + '）</h1>' +
+    '<p class="sub">出勤 ' + s.shift[0] + ':00～' + s.shift[1] + ':00（出勤日のみ）／得意メニュー：' + MENUS[(id - 1) % MENUS.length] + '</p>' +
+    (badges ? '<div class="badges">' + badges + '</div>' : "") +
+    '<h2 class="sec">SCHEDULE<small>出勤情報</small></h2><div class="week">' + week + '</div>' +
+    '<h2 class="sec">COMMENT<small>お店からのコメント</small></h2><div class="comment">' + COMMENTS[(id - 1) % COMMENTS.length] + '<br><span style="color:#98a4ad;font-size:11px">※デモ用の定型文です</span></div>' +
+    '<h2 class="sec">SHOP<small>店舗情報</small></h2>' +
+    '<table class="info">' +
+    '<tr><th>店名</th><td>ゆるり水戸</td></tr>' +
+    '<tr><th>住所</th><td>茨城県水戸市城南（水戸駅南口 徒歩3分）※架空の住所です</td></tr>' +
+    '<tr><th>営業時間</th><td>10:00–22:00（最終受付 21:00）</td></tr>' +
+    '<tr><th>電話</th><td>029-000-0000（受付 9:30–21:00）</td></tr>' +
+    '<tr><th>設備</th><td>全室個室 4室／提携駐車場 4台</td></tr></table>' +
+    '<div class="backs"><a href="ar-top.html">トップへ</a><a href="therapist.html">セラピスト一覧へ</a></div>';
+  if(photos.length > 1){
+    var cur = 0, imgs = main.querySelectorAll('.slider img'), dots = document.getElementById('dots').children, cnt = document.getElementById('cnt');
+    function show(n){
+      cur = (n + photos.length) % photos.length;
+      for(var j = 0; j < imgs.length; j++){ imgs[j].classList.toggle('on', j === cur); dots[j].classList.toggle('on', j === cur); }
+      cnt.textContent = (cur + 1) + " / " + photos.length;
+    }
+    document.getElementById('pv').addEventListener('click', function(){ show(cur - 1); });
+    document.getElementById('nx').addEventListener('click', function(){ show(cur + 1); });
+  }
+})();
+</script>
+</body>
+</html>
