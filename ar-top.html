@@ -152,7 +152,7 @@ footer{background:#20303d;color:#cfdae2;text-align:center;font-size:11px;padding
   // NEW FACE（新人バッジの先頭8名）
   var nf = document.getElementById('newface'), cnt = 0;
   STAFF.forEach(function(s, i){
-    if(cnt >= 8 || s.badges.indexOf('新人') < 0) return;
+    if(cnt >= 8 || s.badge.indexOf('新人') < 0) return;
     cnt++;
     var a = document.createElement('a');
     a.className = 'card'; a.href = 'ar-profile.html?id=' + (i + 1);
