@@ -134,8 +134,15 @@ footer{background:#20303d;color:#cfdae2;text-align:center;font-size:11px;padding
   function fmt(h, m){ return (h < 10 ? "0" + h : "" + h) + ":" + (m < 30 ? "00" : "30"); }
   // 本日の出勤（最小カード＋次回時刻／満了）
   var t = document.getElementById('today'), shown = 0;
-  STAFF.forEach(function(s, i){
-    if(s.days.indexOf(today0) < 0 || shown >= 24) return;
+  var doy = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  var workers = [], wi;
+  for(wi = 0; wi < STAFF.length; wi++){ if(STAFF[wi].days.indexOf(today0) >= 0) workers.push(wi); }
+  var newIdx = workers.filter(function(ix){ return STAFF[ix].badge.indexOf('新人') >= 0; }).reverse();
+  var restIdx = workers.filter(function(ix){ return STAFF[ix].badge.indexOf('新人') < 0; });
+  if(restIdx.length){ var rr = doy % restIdx.length; restIdx = restIdx.slice(rr).concat(restIdx.slice(0, rr)); }
+  var todays = newIdx.concat(restIdx).slice(0, 24);
+  for(var ti = 0; ti < todays.length; ti++){
+    var i = todays[ti], s = STAFF[i];
     shown++;
     var full = (i % 6 === 5);
     var startMin = s.shift[0] * 60, lenMin = (s.shift[1] - s.shift[0]) * 60;
@@ -148,7 +155,7 @@ footer{background:#20303d;color:#cfdae2;text-align:center;font-size:11px;padding
       '<div class="bd"><div class="nm">' + s.name + '</div><div class="age">' + s.age + '歳</div>' +
       '<div class="tm">' + s.shift[0] + ':00～' + s.shift[1] + ':00</div>' + st + '</div>';
     t.appendChild(a);
-  });
+  }
   // PICK UP（先頭8名・写真＋名前のみ）
   var pk = document.getElementById('pickup');
   STAFF.slice(0, 8).forEach(function(s, i){
@@ -157,16 +164,17 @@ footer{background:#20303d;color:#cfdae2;text-align:center;font-size:11px;padding
     a.innerHTML = '<div class="ph"><img class="cp' + s.cp + '" src="' + s.img + '" alt="" loading="lazy"></div><div class="bd"><div class="nm">' + s.name + '（' + s.age + '）</div></div>';
     pk.appendChild(a);
   });
-  // NEW FACE（新人バッジの先頭8名）
+  // NEW FACE（新人バッジの最新8名＝名簿の末尾から）
   var nf = document.getElementById('newface'), cnt = 0;
-  STAFF.forEach(function(s, i){
-    if(cnt >= 8 || s.badge.indexOf('新人') < 0) return;
+  for(var ni = STAFF.length - 1; ni >= 0 && cnt < 8; ni--){
+    var s = STAFF[ni];
+    if(s.badge.indexOf('新人') < 0) continue;
     cnt++;
     var a = document.createElement('a');
-    a.className = 'card'; a.href = 'profile.html?id=' + (i + 1);
+    a.className = 'card'; a.href = 'profile.html?id=' + (ni + 1);
     a.innerHTML = '<div class="ph"><img class="cp' + s.cp + '" src="' + s.img + '" alt="" loading="lazy"></div><div class="bd"><div class="nm">' + s.name + '（' + s.age + '）</div></div>';
     nf.appendChild(a);
-  });
+  }
   // NEWS
   var news = [['2026/11/26','お知らせ','新人セラピスト12名が入店しました'],['2026/11/24','お知らせ','12月のご予約受付を開始しました'],['2026/11/21','キャンペーン','冬の冷え・乾燥対策に「アロマ＋ヘッド」の人気No.1セットがおすすめです']];
   var nw = document.getElementById('news');
